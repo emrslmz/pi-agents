@@ -1,9 +1,8 @@
-// import Play from '@/modules/main/play/router';
-
+import Home from '@/modules/main/home/router';
 
 export default [{
     path: '/',
-    name: 'HomePage',
+    name: 'StartPage',
     component: () => import('@/modules/main/start/views/Start.vue'),
-    // children: [],
+    children: [...Home],
 }];
