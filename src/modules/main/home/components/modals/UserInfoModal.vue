@@ -10,7 +10,7 @@
             <div>
               <button class="btn modal__button modal__button-danger" @click="$emit('close')">Kapat <i class="fas fa-times-circle"></i></button>
                 <router-link to="/home">
-                  <button class="btn modal__button modal_button-primary" v-if="name.length > 2" @click="setUserNameModal(name)">Başlayalım <i class="fas fa-chevron-circle-right"></i></button>
+                  <button class="btn modal__button modal_button-primary" v-if="name.length > 2" @click="setUserNameModal(name)">Go <i class="fas fa-chevron-circle-right"></i></button>
                 </router-link>
             </div>
           </div>
@@ -41,7 +41,9 @@ export default {
     }
   },
   created() {
-    this.setUserName(localStorage.getItem('userName'));
+    if (localStorage.getItem('userName')) {
+      this.setUserName(localStorage.getItem('userName'));
+    }
     this.name = this.userName;
   }
 };
