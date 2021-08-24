@@ -7,21 +7,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-
 export default {
   components: {
     TheHeader: () => import('@/modules/main/start/layouts/TheHeader.vue'),
     HomePage: () => import('@/modules/main/start/components/StartPage.vue'),
   },
-  computed: {
-    ...mapState('Start', ['userName']),
-  },
-  methods: {
-    ...mapActions('Start', ['setUserName']),
-  },
-  created() {
-    this.setUserName(this.userName);
-  }
+
 };
 </script>

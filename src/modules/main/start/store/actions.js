@@ -1,10 +1,7 @@
 export const setUserName = async ({ commit }, data) => {
-        if (data === '') {  // if userName fre
-            const userName = localStorage.getItem('userName');
-            commit('SET_USER_NAME', userName);
-        } else {
-            localStorage.setItem('userName', data);
-            commit('SET_USER_NAME', data);
-        }
-        console.log("name changed");
+    commit('SET_USERNAME', data);
+};
+
+export const setUserInfoModal = async ({ commit }) => {
+    commit('SET_USERINFO_MODAL');
 };

@@ -6,11 +6,11 @@
           <div class="text-center">
             <h2>Hey,</h2>
             <p>Başlamadan önce seni tanımamıza izin ver!</p>
-            <input class="modal__input" placeholder="Bir isim gir!" v-model="userName" type="text" />
+            <input class="modal__input" placeholder="Bir isim gir!" v-model="name" type="text" />
             <div>
               <button class="btn modal__button modal__button-danger" @click="$emit('close')">Kapat <i class="fas fa-times-circle"></i></button>
                 <router-link to="/home">
-                  <button class="btn modal__button modal_button-primary" v-if="userName.length > 2" @click="setUserNameModal(userName)">Başlayalım <i class="fas fa-chevron-circle-right"></i></button>
+                  <button class="btn modal__button modal_button-primary" v-if="name.length > 2" @click="setUserNameModal(name)">Başlayalım <i class="fas fa-chevron-circle-right"></i></button>
                 </router-link>
             </div>
           </div>
@@ -21,22 +21,29 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'UserInfoModal',
   data() {
     return {
-      userName: '',
+      name: '',
     };
+  },
+  computed: {
+    ...mapState('Start', ['userName', 'userInfoModal']),
   },
   methods: {
     ...mapActions('Start', ['setUserName']),
     setUserNameModal(userName) {
-      this.setUserName(userName);
       this.$emit('close');
+      this.setUserName(userName);
     }
   },
+  created() {
+    this.setUserName(localStorage.getItem('userName'));
+    this.name = this.userName;
+  }
 };
 </script>
 

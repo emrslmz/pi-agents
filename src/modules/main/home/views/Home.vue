@@ -1,28 +1,23 @@
 <template>
   <div>
-    {{ userName }}
-    <user-info-modal v-if="modalStatus" @close="modalStatus = false" />
+    {{ userInfoModal }}
+    <user-info-modal v-if="this.userInfoModal" @close="setUserInfoModal()" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'Home',
-  data() {
-    return {
-      modalStatus: true,
-    };
-  },
   components: {
     UserInfoModal: () => import('@/modules/main/home/components/modals/UserInfoModal.vue'),
   },
-  created() {
-   console.log(localStorage.getItem('userName'));
-  },
   computed: {
-    ...mapState('Start', ['userName'])
+    ...mapState('Start', ['userName', 'userInfoModal'])
+  },
+  methods: {
+    ...mapActions('Start', ['setUserInfoModal']),
   },
 };
 </script>
