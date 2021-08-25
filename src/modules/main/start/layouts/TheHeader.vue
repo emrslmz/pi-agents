@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg container">
       <div class="d-flex align-items-end"><h3>π</h3> <h5>agents</h5></div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
@@ -10,15 +10,15 @@
         <div class="navbar-nav mr-auto"></div>
         <div class="navbar-right">
           <router-link to="/home">
-            <h5 class="navbar-item">Ana Sayfa </h5>
+            <p class="navbar-item">Ana Sayfa </p>
           </router-link>
           <router-link to="/survey">
-            <h5 class="navbar-item">Anketler </h5>
+            <p class="navbar-item">Anketler </p>
           </router-link>
          <router-link to="/faq">
-           <h5 class="navbar-item">SSS</h5>
+           <p class="navbar-item">SSS</p>
          </router-link>
-            <h5 class="navbar-item" @click="setUserInfoModal()"><i class="far fa-user-circle"></i></h5>
+            <p class="navbar-item" @click="setUserInfoModal()"><i class="far fa-user-circle"></i></p>
         </div>
       </div>
 
@@ -39,11 +39,11 @@ export default {
 
 <style scoped>
 .navbar {
-  color: white;
-  background-color: #191919;
+  color: #191919;
 }
+
 a {
-  color: white;
+  color: #191919;
   text-decoration: none;
 }
 
@@ -55,7 +55,7 @@ a {
 
 .navbar-item {
   padding: 0 10px 0 10px;
-  opacity: 0.5;
+  opacity: 0.7;
   transition: 0.2s;
   border-top: none;
   border-right: none;

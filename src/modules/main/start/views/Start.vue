@@ -12,6 +12,5 @@ export default {
     TheHeader: () => import('@/modules/main/start/layouts/TheHeader.vue'),
     HomePage: () => import('@/modules/main/start/components/StartPage.vue'),
   },
-
 };
 </script>

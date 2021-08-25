@@ -1,14 +1,14 @@
 export default [{
     path: '/survey',
     name: 'SurveyPage',
-    component: () => import('@/modules/main/survey/views/Survey.vue'),
+    component: () => import('@/modules/main/survey/views/SurveyHome.vue'),
     children: [
-        // {
-        //     path: '/profiles',
-        //     meta: {
-        //         title: 'Profile',
-        //     },
-        //     component: () => import('@/modules/main/profiles/components/Profiles.vue'),
-        // },
+        {
+            path: '/survey/:id',
+            meta: {
+                title: 'Survey Side',
+            },
+            component: () => import('@/modules/main/survey/components/Survey.vue'),
+        },
     ]
 }];
