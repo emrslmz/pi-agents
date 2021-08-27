@@ -5,6 +5,7 @@ export default [{
     children: [
         {
             path: '/survey/:id',
+            name: 'SurveySide',
             meta: {
                 title: 'Survey Side',
             },

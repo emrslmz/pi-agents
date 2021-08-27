@@ -12,9 +12,11 @@
         <div class="card-content__time">
           <h3>Süre: <b>5 min.</b></h3>
         </div>
-       <router-link :to="`/survey/${id}`">
-         <span>Şimdi başla</span>
-       </router-link>
+      <div class="card-content__button">
+        <router-link :to="{ name: 'SurveySide', params: { id }} ">
+          <span>Şimdi başla</span>
+        </router-link>
+      </div>
       </div>
     </div>
   </div>
@@ -166,7 +168,7 @@ export default {
   transition: 0.5s;
 }
 
-.container .card:hover .card-content a{
+.container .card:hover .card-content a {
   opacity: 1;
   transform: translateY(0px);
   transition-delay: 0.75s;
