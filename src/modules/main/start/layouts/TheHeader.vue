@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg container">
+    <nav class="navbar navbar-expand-lg">
       <div class="d-flex align-items-end"><h3>π</h3> <h5>agents</h5></div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
@@ -18,21 +18,40 @@
          <router-link to="/faq">
            <p class="navbar-item">SSS</p>
          </router-link>
-            <p class="navbar-item" @click="setUserInfoModal()"><i class="far fa-user-circle"></i></p>
+            <p class="navbar-item navbar-item__user" @click="setUserInfoModal(true)">
+              <i class="far fa-user-circle"></i>
+              <small class="pl-2" v-if="userName === ''"> İsminizi öğrenebilir miyim?</small>
+              <small class="pl-2" v-else> Merhaba, {{ userName }} </small>
+            </p>
+
         </div>
       </div>
 
     </nav>
+    <user-info-modal v-if="this.userInfoModal" @close="setUserInfoModal()" />
+
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'TheHeader',
+  components: {
+    UserInfoModal: () => import('@/modules/main/home/components/modals/UserInfoModal.vue'),
+  },
+  computed: {
+    ...mapState('Start', ['userName', 'userInfoModal']),
+  },
   methods: {
-    ...mapActions('Start', ['setUserInfoModal']),
+    ...mapActions('Start', ['setUserName', 'setUserInfoModal']),
+  },
+  created() {
+    if (localStorage.getItem('userName')) {
+      this.setUserName(localStorage.getItem('userName'));
+      this.name = this.userName;
+    }
   }
 };
 </script>
@@ -61,6 +80,9 @@ a {
   border-right: none;
   border-left: none;
   cursor: pointer;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .navbar-item:hover {
@@ -68,4 +90,11 @@ a {
   transition: 0.4s;
 }
 
+.navbar-item__user {
+  background-color: #9bdc28;
+  min-width: 200px;
+  min-height: 40px;
+  border-radius: 16px;
+
+}
 </style>

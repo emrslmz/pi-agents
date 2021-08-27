@@ -5,13 +5,11 @@
         <div class="modal-card">
           <div class="text-center">
             <h2>Hey,</h2>
-            <p>Başlamadan önce seni tanımamıza izin ver!</p>
+            <p>seni tanımamız için ismini yaz!</p>
             <input class="modal__input" placeholder="Bir isim gir!" v-model="name" type="text" />
             <div>
               <button class="btn modal__button modal__button-danger" @click="$emit('close')">Kapat <i class="fas fa-times-circle"></i></button>
-                <router-link to="/home">
-                  <button class="btn modal__button modal_button-primary" v-if="name.length > 2" @click="setUserNameModal(name)">Go <i class="fas fa-chevron-circle-right"></i></button>
-                </router-link>
+                <button class="btn modal__button modal_button-primary" v-if="name.length > 2" @click="setGO(name)">Go <i class="fas fa-chevron-circle-right"></i></button>
             </div>
           </div>
       </div>
@@ -35,16 +33,16 @@ export default {
   },
   methods: {
     ...mapActions('Start', ['setUserName']),
-    setUserNameModal(userName) {
+    setGO(name) {
       this.$emit('close');
-      this.setUserName(userName);
+      this.setUserName(name);
     }
   },
   created() {
     if (localStorage.getItem('userName')) {
       this.setUserName(localStorage.getItem('userName'));
+      this.name = this.userName;
     }
-    this.name = this.userName;
   }
 };
 </script>

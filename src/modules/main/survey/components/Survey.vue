@@ -1,15 +1,16 @@
 <template>
   <div>
-    <div class="d-flex flex-column justify-content-center align-items-center page" v-if="findSurvey">
+    <div class="d-flex flex-column justify-content-center align-items-center page" v-if="data">
       <div class="page-header">
-        <h3>{{ findSurvey.name }}</h3>
-        <small>{{ findSurvey.name }} anketine hoş geldin! </small> <br>
+        <h3>{{ data.name }}</h3>
+        <small>{{ data.name }} anketine hoş geldin! </small> <br>
         <small>Bu ankette toplam 7 soru bulunuyor! Anket sonunda en çok hangi karaktere benzediğini görebilirsin.</small>
       </div>
       <div class="page-content">
-sorularr {{ findQuestion }}
+sorularr {{ question }}
       </div>
     </div>
+    <div v-else>loading</div>
   </div>
 </template>
 
@@ -18,15 +19,27 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'SurveySide',
+  data() {
+    return {
+      data: {},
+      question: [],
+    };
+  },
   computed: {
     ...mapState('Survey', ['survey', 'surveyQuestions']),
+  },
+  methods: {
     findSurvey() {
-      return this.survey.find(a => a.id === this.$route.params.id);
+      this.data = this.survey.find(a => a.id === this.$route.params.id);
     },
     findQuestion() {
-      return this.surveyQuestions.filter(s => s.surveyId === this.findSurvey.id);
+      this.question = this.surveyQuestions.filter(s => s.surveyId === this.findSurvey.id);
     },
   },
+  created() {
+    this.findSurvey();
+    this.findQuestion();
+  }
 };
 </script>
 
