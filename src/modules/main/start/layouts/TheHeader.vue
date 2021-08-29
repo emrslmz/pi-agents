@@ -15,14 +15,11 @@
           <router-link to="/survey">
             <p class="navbar-item">Anketler </p>
           </router-link>
-         <router-link to="/faq">
-           <p class="navbar-item">SSS</p>
-         </router-link>
-            <p class="navbar-item navbar-item__user" @click="setUserInfoModal(true)">
-              <i class="far fa-user-circle"></i>
-              <small class="pl-2" v-if="userName === ''"> İsminizi öğrenebilir miyim?</small>
-              <small class="pl-2" v-else> Merhaba, {{ userName }} </small>
-            </p>
+          <p class="navbar-item__user" @click="setUserInfoModal(true)">
+            <i class="far fa-user-circle"></i>
+            <small class="pl-2" v-if="userName === ''"> İsminizi öğrenebilir miyim?</small>
+            <small class="pl-2" v-else> Merhaba, {{ userName }} </small>
+          </p>
 
         </div>
       </div>
@@ -74,7 +71,40 @@ a {
 
 .navbar-item {
   padding: 0 10px 0 10px;
-  opacity: 0.7;
+  opacity: 0.9;
+  transition: 0.2s;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 120px;
+  min-height: 40px;
+  margin: 0 5px 0 5px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight:400;
+  color:#FFFFFF;
+  background-color:#3369ff;
+  position:relative;
+}
+
+.navbar-item:hover {
+  opacity: 1;
+  transition: 0.4s;
+  top: 0.1em;
+}
+
+.navbar-item__user {
+  background-color: #9bdc28;
+  min-width: 200px;
+  min-height: 40px;
+  border-radius: 16px;
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+  padding: 0 10px 0 10px;
   transition: 0.2s;
   border-top: none;
   border-right: none;
@@ -83,18 +113,17 @@ a {
   display: flex;
   justify-content: start;
   align-items: center;
+  margin: 0 5px 0 5px;
+  text-decoration: none;
+  font-weight:400;
+  color:#FFFFFF;
+  text-align:center;
+  position:relative;
 }
 
-.navbar-item:hover {
-  opacity: 1;
-  transition: 0.4s;
-}
 
-.navbar-item__user {
-  background-color: #9bdc28;
-  min-width: 200px;
-  min-height: 40px;
-  border-radius: 16px;
+.navbar-item__user:hover {
+  top: 0.1em;
 
 }
 </style>
