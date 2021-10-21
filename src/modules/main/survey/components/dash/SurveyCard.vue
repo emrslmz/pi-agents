@@ -13,7 +13,7 @@
           <h3>Süre: <b>5 min.</b></h3>
         </div>
       <div class="card-content__button">
-        <router-link :to="{ name: 'SurveySide', params: { id }} ">
+        <router-link :to="{ name: 'SurveySide', params: { id }}">
           <span>Şimdi başla</span>
         </router-link>
       </div>
@@ -41,7 +41,8 @@ export default {
   background: #232323;
   border-radius: 20px;
   overflow: hidden;
-  border: 2px solid #191919;
+  border: 2px solid white;
+  box-shadow: 0 0 10px 5px white;
 }
 
 .container .card:before {

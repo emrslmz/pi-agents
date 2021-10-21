@@ -1,10 +1,10 @@
-import Start from '@/modules/main/start/router';
+import Home from '@/modules/main/home/Home';
 
 export default [
     {
         path: '/',
         component: () => import('@/core/App.vue'),
-        children: [...Start],
+        children: [...Home],
     },
     {
         path: '*',

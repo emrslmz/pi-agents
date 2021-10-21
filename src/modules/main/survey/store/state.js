@@ -17,22 +17,27 @@ export default {
     ],
     surveyQuestions: [  //survey.id === surveyQuestions.id ise push survey.questions
         {
+            id: 1,
             surveyId: 1,
             text: 'Soru 1',
         },
         {
+            id: 2,
             surveyId: 1,
             text: 'Soru 2',
         },
         {
+            id: 3,
             surveyId: 1,
             text: 'Soru 3',
         },
         {
+            id: 4,
             surveyId: 1,
             text: 'Soru 4',
         },
         {
+            id: 5,
             surveyId: 2,
             text: 'Soru 4',
         }

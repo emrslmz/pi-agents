@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import Start from '@/modules/main/start/store';
+import Home from '@/modules/main/home/store';
 import Survey from '@/modules/main/survey/store';
 
 Vue.use(Vuex);
@@ -9,7 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     namespaced: true,
     modules: {
-        Start,
+        Home,
         Survey,
     },
 });

@@ -1,22 +1,29 @@
 <template>
   <div>
-    <Home-page />
+   <div class="app">
+     <the-header />
+     <home-page v-if="$route.name === 'HomePage'" />
+     <router-view />
+     <the-footer />
+   </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-
 export default {
-  name: 'Home',
   components: {
-    HomePage: () => import('@/modules/main/home/components/HomePage.vue'),
-  },
-  computed: {
-    ...mapState('Start', ['userName', 'userInfoModal'])
-  },
-  methods: {
-    ...mapActions('Start', ['setUserInfoModal']),
+    TheHeader: () => import('@/modules/main/home/layouts/TheHeader.vue'),
+    HomePage: () => import('@/modules/main/home/components/StartPage.vue'),
+    TheFooter: () => import('@/modules/main/home/layouts/TheFooter.vue'),
   },
 };
 </script>
+
+<style scoped>
+.app {
+  /*background-color: #E9E9E9;*/
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  min-height: 100vh;
+  width: 100%;
+}
+</style>

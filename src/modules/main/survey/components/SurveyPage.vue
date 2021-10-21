@@ -54,7 +54,7 @@ export default {
 
 <style scoped>
 .page {
-  min-height: 50vh;
+  min-height: 100vh;
 }
 
 .page-header {
@@ -62,10 +62,6 @@ export default {
 }
 .page-header small {
   letter-spacing: 3px;
-}
-
-.page-content {
-  padding: 50px 0 0 0;
 }
 
 .page-survey__card {
