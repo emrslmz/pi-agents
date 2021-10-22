@@ -13,7 +13,7 @@
 export default {
   components: {
     TheHeader: () => import('@/modules/main/home/layouts/TheHeader.vue'),
-    HomePage: () => import('@/modules/main/home/components/StartPage.vue'),
+    HomePage: () => import('@/modules/main/home/components/HomePage.vue'),
     TheFooter: () => import('@/modules/main/home/layouts/TheFooter.vue'),
   },
 };

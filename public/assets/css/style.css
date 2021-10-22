@@ -68,13 +68,19 @@
     background-color: #f0f0f0 !important;
 }
 
-
-
 .text-bold {
     font-weight: bold;
 }
 
-
 .cursor-pointer {
     cursor: pointer;
+}
+
+/***********************************************/
+/* TEXT-FONT
+/***********************************************/
+
+@font-face {
+    font-family: PassionOne;
+    src: url(../fonts/PassionOne-Regular.ttf);
 }

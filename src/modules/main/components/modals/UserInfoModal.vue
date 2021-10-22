@@ -29,10 +29,10 @@ export default {
     };
   },
   computed: {
-    ...mapState('Start', ['userName', 'userInfoModal']),
+    ...mapState('Home', ['userName', 'userInfoModal']),
   },
   methods: {
-    ...mapActions('Start', ['setUserName']),
+    ...mapActions('Home', ['setUserName']),
     setGO(name) {
       this.$emit('close');
       this.setUserName(name);

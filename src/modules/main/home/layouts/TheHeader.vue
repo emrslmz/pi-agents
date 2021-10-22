@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav mr-auto"></div>
         <div class="navbar-right">
-          <router-link to="/home">
+          <router-link to="/">
             <p class="navbar-item">Ana Sayfa </p>
           </router-link>
           <router-link to="/survey">
@@ -36,13 +36,13 @@ import { mapState, mapActions } from 'vuex';
 export default {
   name: 'TheHeader',
   components: {
-    UserInfoModal: () => import('@/modules/main/home/components/modals/UserInfoModal.vue'),
+    UserInfoModal: () => import('@/modules/main/components/modals/UserInfoModal.vue'),
   },
   computed: {
-    ...mapState('Start', ['userName', 'userInfoModal']),
+    ...mapState('Home', ['userName', 'userInfoModal']),
   },
   methods: {
-    ...mapActions('Start', ['setUserName', 'setUserInfoModal']),
+    ...mapActions('Home', ['setUserName', 'setUserInfoModal']),
   },
   created() {
     if (localStorage.getItem('userName')) {

@@ -19,7 +19,7 @@ export default {
         {
             id: 1,
             surveyId: 1,
-            text: 'Soru 1',
+            text: 'Isınmadan oyuna girerim.',
         },
         {
             id: 2,
