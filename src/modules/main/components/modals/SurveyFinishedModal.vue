@@ -47,17 +47,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.modal__input{
-  outline: 0;
-  border: none;
-  padding-left: 20px;
-  font-weight: bold;
-  background-color: #F5F8FA;
-  width: 300px;
-  height: 45px;
-  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
 .modal__button {

@@ -1,24 +1,31 @@
 <template>
   <div>
-    <div class="d-flex flex-column page">
+    <div class="page">
       <div class="page-header">
         <h3>Anketler</h3>
-        <h6 v-if="userName">Ankete gitmek için bir kategori seç!</h6>
-        <h6>Mevcut anketleri görmek için gerekli bilgileri girmen gerekir!</h6>
-        <button class="page-header__button btn" @click="setUserInfoModal(true)"> İsminizi öğrenebilir miyim?</button>
-      </div>
-      <div class="page-content row" v-if="userName">
-        <div class="col-4 page-survey__card" v-for="(sur, index) in survey" :key="index">
-          <survey-card
-              :id="sur.id"
-              :name="sur.name"
-              :minName="sur.minName"
-              :image="sur.image"
-              :color="sur.color"  />
+        <div v-if="userName">
+          <h6>Ankete gitmek için bir kategori seç!</h6>
+        </div>
+        <div class="d-flex flex-column justify-content-center" v-else>
+          <h6>Mevcut anketleri görmek için gerekli bilgileri girmen gerekir!</h6>
+          <button class="page-header__button btn" @click="setUserInfoModal(true)">İsminizi öğrenebilir miyim?</button>
         </div>
       </div>
-      <div  v-else>
+      <div class="container">
+        <div class="page-content row" v-if="userName">
+          <div class="col-4 page-survey__card" v-for="(sur, index) in survey" :key="index">
+            <survey-card
+                :id="sur.id"
+                :name="sur.name"
+                :minName="sur.minName"
+                :image="sur.image"
+                :color="sur.color"  />
+          </div>
+        </div>
+        <div v-else>
+        </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -38,9 +45,6 @@ export default {
   methods: {
     ...mapActions('Home', ['setUserInfoModal'])
   },
-  created() {
-    this.setUserInfoModal(true);
-  }
 };
 </script>
 
@@ -50,6 +54,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding-bottom: 200px;
 }
 
@@ -58,9 +63,7 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: white;
   padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .page-content {
