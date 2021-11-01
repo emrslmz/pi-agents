@@ -1,5 +1,5 @@
 export default {
-    survey: [
+    surveyCategory: [
         {
             id: 1,
             name: 'Valorant',
@@ -15,7 +15,7 @@ export default {
             color: 'green',
         },
     ],
-    surveyQuestions: [  //survey.id === surveyQuestions.id ise push survey.questions
+    surveyQuestions: [
         {
             id: 1,
             surveyId: 1,

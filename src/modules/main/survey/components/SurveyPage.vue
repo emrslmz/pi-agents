@@ -13,7 +13,7 @@
       </div>
       <div class="container">
         <div class="page-content row" v-if="userName">
-          <div class="col-4 page-survey__card" v-for="(sur, index) in survey" :key="index">
+          <div class="col-4 page-survey__card" v-for="(sur, index) in surveyCategory" :key="index">
             <survey-card
                 :id="sur.id"
                 :name="sur.name"
@@ -36,11 +36,11 @@ import { mapState, mapActions } from 'vuex';
 export default {
   name: 'SurveyPage',
   components: {
-    SurveyCard: () => import('@/modules/main/survey/components/dash/SurveyCard.vue'),
+    SurveyCard: () => import('@/modules/main/survey/components/dashboard/SurveyCard.vue'),
   },
   computed: {
     ...mapState('Home', ['userName']),
-    ...mapState('Survey', ['survey']),
+    ...mapState('Survey', ['surveyCategory']),
   },
   methods: {
     ...mapActions('Home', ['setUserInfoModal'])

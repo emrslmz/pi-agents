@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="d-flex flex-column justify-content-start align-items-center page" v-if="data">
+    <div class="d-flex flex-column justify-content-start align-items-center page" v-if="surveyData">
       <div class="page-header">
-        <h1>{{ data.name }} anketine hoş geldin! </h1>
+        <h1>{{ surveyData.name }} anketine hoş geldin! </h1>
         <h6>Bu ankette toplam {{ question.length }} {{ userSurveyPoint }}soru bulunuyor! Anket sonunda en çok hangi karaktere benzediğini görebilirsin.</h6>
       </div>
       <div class="page-content d-flex flex-column justify-content-center align-items-center">
@@ -41,7 +41,13 @@
                 :disabled="questionAnsweredId > index"
                 @click="handleButtonEvent(-5)">Kesinlikle hayır</button>
           </div>
+
         </div>
+
+        <div v-if="questionAnsweredId === question.length">
+          <button class="btn try-again-button bg-warning">Tekrar Dene <i class="fas fa-sync-alt"></i></button>
+        </div>
+
 
       </div>
     </div>
@@ -62,7 +68,7 @@ export default {
   },
   data() {
     return {
-      data: {},
+      surveyData: {},
       question: [],
       questionAnsweredId: 0,
       userSurveyPoint: 0,
@@ -70,20 +76,20 @@ export default {
     };
   },
   computed: {
-    ...mapState('Survey', ['survey', 'surveyQuestions']),
+    ...mapState('Survey', ['surveyCategory', 'surveyQuestions']),
   },
   methods: {
      findSurveyInfo() {
-       this.survey.find((s) => {
+       this.surveyCategory.find((s) => {
          if (s.id == this.$route.params.id) {
-           this.data = s;
+           this.surveyData = s;
          }
        });
        this.findSurveyQuestion();
     },
     findSurveyQuestion() {
      const selectQuestion = this.surveyQuestions.filter((q) => {
-        if (q.surveyId == this.data.id) {
+        if (q.surveyId == this.surveyData.id) {
           return true;
         }
       });
@@ -210,8 +216,23 @@ export default {
   background-blend-mode: normal, lighten, soft-light;
 }
 
-
 .answered {
   opacity: 0.6;
+}
+
+.try-again-button {
+  margin: 15px;
+  min-width: 150px;
+  transition: 0.5s;
+  display:inline-block;
+  padding: 0.7em 1.4em;
+  border-radius: 15px;
+  text-decoration:none;
+  text-transform: uppercase;
+  font-weight:400;
+  color:#FFFFFF;
+  box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+  text-align:center;
+  position:relative;
 }
 </style>
