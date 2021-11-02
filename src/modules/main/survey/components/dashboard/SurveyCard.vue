@@ -1,21 +1,23 @@
 <template>
-  <div class="container">
-    <div class="card">
+  <div>
+    <div class="card" :class="survey.active ? '' : 'card__disabled'">
       <div class="card-image">
-        <img :src="`assets/img/images/${image}`" />
+        <img :src="`assets/img/images/${survey.image}`" />
       </div>
       <div class="card-content">
-        <h2>{{ name }}</h2>
+        <h2>{{ survey.name }}</h2>
         <div class="card-content__question">
-          <h3>Soru Sayısı: <b>7</b></h3>
+          <h4>Soru Sayısı: <b>7</b></h4>
         </div>
         <div class="card-content__time">
-          <h3>Süre: <b>5 min.</b></h3>
+          <h4>Süre: <b>5 min.</b></h4>
         </div>
-      <div class="card-content__button">
-        <router-link :to="{ name: 'SurveySide', params: { id }}">
-          <span>Şimdi başla</span>
-        </router-link>
+      <div class="card-content__button" :class="survey.active ? '' : 'cursor__not-allowed'">
+        <button class="btn"  :disabled="!survey.active">
+          <router-link :to="survey.active ? { name: 'SurveySide', params: { id }} : ''">
+            Şimdi başla
+          </router-link>
+        </button>
       </div>
       </div>
     </div>
@@ -25,24 +27,37 @@
 <script>
 export default {
   name: 'SurveyCard',
-  props: ['id', 'name', 'minName', 'image', 'color'],
+  props: ['id', 'survey'],
 };
 </script>
 
 <style scoped>
-.container{
-  position: relative;
-}
-
-.container .card{
+.container .card {
   position: relative;
   width: 320px;
-  height: 450px;
+  height: 550px;
   background: #232323;
   border-radius: 20px;
   overflow: hidden;
   border: 2px solid white;
-  box-shadow: 0 0 10px 5px white;
+  margin: 40px;
+  /*box-shadow: 0 0 10px 5px white;*/
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.cursor__not-allowed {
+  cursor: not-allowed;
+}
+
+.card__disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  z-index: 9998;
 }
 
 .container .card:before {
@@ -52,7 +67,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #9bdc28;
+  background: #d42053;
   clip-path: circle(150px at 80% 20%);
   transition: 0.5s ease-in-out;
 }
@@ -78,19 +93,18 @@ export default {
   transform: translateY(-50%);
   z-index: 99;
   width: 100%;
-  height: 220px;
+  height: 150px;
   transition: 0.5s;
 }
 
-.container .card:hover .card-image{
+.container .card:hover .card-image {
   top: 0;
-  transform: translateY(0%);
-
+  transform: translateY(60%);
 }
 
-.container .card .card-image img{
+.container .card .card-image img {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%) ; /*rotate(-25deg)*/
   width: 190px;
@@ -107,7 +121,7 @@ export default {
 }
 
 .container .card:hover .card-content{
-  height: 210px;
+  height: 200px;
 }
 
 .container .card .card-content h2{
@@ -139,7 +153,7 @@ export default {
   transition-delay: 0.6s;
 }
 
-.card-content__question h3 {
+.card-content__question h4 {
   color: white;
   font-size: 12px;
   text-transform: uppercase;
@@ -147,7 +161,7 @@ export default {
   margin-right: 10px;
 }
 
-.card-content__time h3 {
+.card-content__time h4 {
   color: white;
   font-size: 12px;
   text-transform: uppercase;

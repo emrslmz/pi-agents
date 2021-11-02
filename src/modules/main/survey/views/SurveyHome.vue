@@ -9,7 +9,7 @@
 export default {
   name: 'SurveyHome',
   components: {
-    SurveyPage: () => import('@/modules/main/survey/components/SurveyPage.vue'),
+    SurveyPage: () => import('@/modules/main/survey/components/SelectSurveyPage.vue'),
   }
 };
 </script>

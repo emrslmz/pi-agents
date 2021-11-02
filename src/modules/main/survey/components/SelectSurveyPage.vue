@@ -13,13 +13,10 @@
       </div>
       <div class="container">
         <div class="page-content row" v-if="userName">
-          <div class="col-4 page-survey__card" v-for="(sur, index) in surveyCategory" :key="index">
+          <div class="page-survey__card col-12 col-sm-12 col-md-6 col-xl-4" v-for="(sur, index) in surveyCategory" :key="index">
             <survey-card
                 :id="sur.id"
-                :name="sur.name"
-                :minName="sur.minName"
-                :image="sur.image"
-                :color="sur.color"  />
+                :survey="sur"  />
           </div>
         </div>
         <div v-else>
@@ -69,11 +66,6 @@ export default {
 .page-content {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.page-survey__card {
-  padding: 50px 0 50px 0;
 }
 
 .page-header__button {
@@ -98,5 +90,12 @@ export default {
   color:#FFFFFF;
   background-color:#3369ff;
   position:relative;
+}
+
+.page-survey__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>
