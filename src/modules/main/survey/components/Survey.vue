@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="d-flex flex-column justify-content-start align-items-center page" v-if="surveyData">
+    <div class="page">
       <div class="page-header">
         <h1>{{ surveyData.name }} anketine hoş geldin! </h1>
-        <h6>Bu ankette toplam {{ question.length }} {{ userSurveyPoint }}soru bulunuyor! Anket sonunda en çok hangi karaktere benzediğini görebilirsin.</h6>
+        <h6>Bu ankette toplam soru bulunuyor! Anket sonunda en çok hangi karaktere benzediğini görebilirsin.</h6>
       </div>
-      <div class="page-content d-flex flex-column justify-content-center align-items-center">
+      <div class="page-content" v-if="surveyData && loadingSurvey">
         <div class="question-container" v-for="(que, index) in question" :key="index" :class="questionAnsweredId > index ? 'answered' : ''" v-show="questionAnsweredId >= index">
           <div class="question-id">{{ index+1 }}</div>
           <div class="question-text">{{ que.text }}</div>
@@ -45,13 +45,19 @@
         </div>
 
         <div v-if="questionAnsweredId === question.length">
-          <button class="btn try-again-button bg-warning">Tekrar Dene <i class="fas fa-sync-alt"></i></button>
+          <router-link to="/survey"><button class="btn try-again-button bg-warning">Tekrar Dene <i class="fas fa-sync-alt"></i></button>
+          </router-link>
+          <router-link to="/"><button class="btn try-again-button bg-primary">Ana Sayfa <i class="fas fa-home"></i></button></router-link>
         </div>
 
 
       </div>
+      <div class="page-content" v-else>
+        Anketler Yükleniyor... Birkaç Saniye içinde testi çözebilirsin
+        <h2><i class="fas fa-spinner fa-pulse"></i></h2>
+      </div>
     </div>
-    <div v-else>loading</div>
+
     <div>
       <survey-finished-modal v-if="finished" @close="finished = false" />
     </div>
@@ -73,6 +79,7 @@ export default {
       questionAnsweredId: 0,
       userSurveyPoint: 0,
       finished: false,
+      loadingSurvey: false,
     };
   },
   computed: {
@@ -107,22 +114,33 @@ export default {
   },
   created() {
     this.findSurveyInfo();
+
+    setTimeout(() => {
+      this.loadingSurvey = true;
+    }, 5000);
   },
 };
 </script>
 
 <style scoped>
 .page {
-  min-height: 100vh;
+  min-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-header {
   text-align: center;
 }
 
-/*.page-header small {*/
-/*  letter-spacing: 3px;*/
-/*}*/
+.page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .question-container {
   width: 900px;

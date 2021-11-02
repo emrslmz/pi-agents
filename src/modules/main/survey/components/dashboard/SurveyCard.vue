@@ -12,13 +12,11 @@
         <div class="card-content__time">
           <h4>Süre: <b>5 min.</b></h4>
         </div>
-      <div class="card-content__button" :class="survey.active ? '' : 'cursor__not-allowed'">
-        <button class="btn"  :disabled="!survey.active">
-          <router-link :to="survey.active ? { name: 'SurveySide', params: { id }} : ''">
+        <div :disabled="!survey.active">
+          <router-link :class="survey.active ? '' : 'cursor_notAllowed'" :to="survey.active ? { name: 'SurveySide', params: { id }} : ''">
             Şimdi başla
           </router-link>
-        </button>
-      </div>
+        </div>
       </div>
     </div>
   </div>
@@ -32,6 +30,11 @@ export default {
 </script>
 
 <style scoped>
+
+.cursor_notAllowed {
+  cursor: not-allowed;
+}
+
 .container .card {
   position: relative;
   width: 320px;
@@ -49,15 +52,9 @@ export default {
   user-select: none;
 }
 
-.cursor__not-allowed {
-  cursor: not-allowed;
-}
-
 .card__disabled {
   opacity: 0.5;
   cursor: not-allowed;
-
-  z-index: 9998;
 }
 
 .container .card:before {
