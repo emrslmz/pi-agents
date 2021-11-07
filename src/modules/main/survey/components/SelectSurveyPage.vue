@@ -11,7 +11,7 @@
           <button class="page-header__button btn" @click="setUserInfoModal(true)">İsminizi öğrenebilir miyim?</button>
         </div>
       </div>
-      <div class="container">
+      <div class="page-container container">
         <div class="page-content row" v-if="userName">
           <div class="page-survey__card col-12 col-sm-12 col-md-6 col-xl-4" v-for="(sur, index) in surveyCategory" :key="index">
             <survey-card
@@ -21,6 +21,10 @@
         </div>
         <div v-else>
         </div>
+      </div>
+
+      <div class="page-footer">
+        <small>Learn about the terms and conditions</small>
       </div>
 
     </div>
@@ -52,7 +56,7 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 200px;
+  padding-bottom: 50px;
 }
 
 .page-header {

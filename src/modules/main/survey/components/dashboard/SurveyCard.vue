@@ -64,7 +64,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #d42053;
+  background: #6441a5;
   clip-path: circle(150px at 80% 20%);
   transition: 0.5s ease-in-out;
 }

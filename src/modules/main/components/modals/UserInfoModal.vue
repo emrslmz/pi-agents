@@ -9,7 +9,7 @@
             <input class="modal__input" placeholder="Bir isim gir!" v-model="name" type="text" />
             <div>
               <button class="btn modal__button modal__button-danger" @click="$emit('close')">Kapat <i class="fas fa-times-circle"></i></button>
-                <button class="btn modal__button modal_button-primary" v-if="name.length > 2" @click="setGO(name)">Go <i class="fas fa-chevron-circle-right"></i></button>
+                <button class="btn modal__button" v-if="name.length > 2" @click="setGO(name)">Go <i class="fas fa-chevron-circle-right"></i></button>
             </div>
           </div>
       </div>
@@ -100,7 +100,7 @@ export default {
   text-transform: uppercase;
   font-weight:400;
   color:#FFFFFF;
-  background-color:#3369ff;
+  background-color: #6441a5;
   box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
   text-align:center;
   position:relative;

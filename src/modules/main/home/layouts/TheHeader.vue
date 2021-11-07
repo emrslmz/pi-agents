@@ -88,7 +88,7 @@ a {
   text-decoration: none;
   font-weight:400;
   color:#FFFFFF;
-  background-color:#3369ff;
+  background-color: #815fc0;
   position:relative;
 }
 

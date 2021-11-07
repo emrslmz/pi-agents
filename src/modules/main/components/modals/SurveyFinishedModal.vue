@@ -177,8 +177,7 @@ export default {
 
 .agent-picture {
   width: auto;
-  height: 600px;
-  padding-top: 60px;
+  height: 500px;
 }
 
 .scanning-container {

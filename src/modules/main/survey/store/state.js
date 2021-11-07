@@ -30,6 +30,13 @@ export default {
         },
         {
             id: 5,
+            name: 'Ateş ve Su',
+            minName: 'AteşVeSu',
+            image: 'fireboy_watergirl.png',
+            active: false,
+        },
+        {
+            id: 6,
             name: 'Euro Truck Simulator 2',
             minName: 'ETS',
             image: 'euro_truck_simulator_cover.png',

@@ -55,6 +55,7 @@
       <div class="page-content" v-else>
         Anketler Yükleniyor... Birkaç Saniye içinde testi çözebilirsin
         <h2><i class="fas fa-spinner fa-pulse"></i></h2>
+        <h1 class="animate__animated animate__bounce">An animated element</h1>
       </div>
     </div>
 
@@ -129,6 +130,11 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .page-header {
