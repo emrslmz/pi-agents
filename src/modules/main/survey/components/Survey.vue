@@ -42,6 +42,14 @@
                 @click="handleButtonEvent(-5)">Kesinlikle hayır</button>
           </div>
 
+          <div class="question-options">
+            <button
+                class="btn option-back"
+                :class="questionAnsweredId === 0 ? 'option-answered' : ''"
+                v-show="questionAnsweredId !== 0"
+                :disabled="questionAnsweredId === 0"
+                @click="questionAnsweredId--"><i class="fas fa-undo-alt"></i></button>
+          </div>
         </div>
 
 
@@ -259,6 +267,11 @@ export default {
 
 .option-definitely-no {
   background-image: linear-gradient(to right, #f9d423 0%, #ff4e50 100%);
+}
+
+.option-back {
+  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  color: #575757;
 }
 
 .option-answered {

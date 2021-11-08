@@ -1,5 +1,12 @@
 <template>
-  <div class="home-page">sa</div>
+  <div class="home-page">
+
+    <div class="thumb">
+      <a href="#">
+        <span>the optimist lives on</span>
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -12,5 +19,89 @@ export default {
 .home-page {
   min-height: 90vh;
 }
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+body {
+  background: #ddd;
+  background: linear-gradient(#ddd, #e8e8e8);
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+  margin:0;
+}
+
+.thumb {
+  width: 400px;
+  height: 300px;
+  margin: 70px auto;
+  perspective: 1000px;
+}
+
+.thumb a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  url("https://img.fanatik.com.tr/img/78/740x418/60b78234ae298b9ede8dc535.jpg");
+  background-size: 0, cover;
+  transform-style: preserve-3d;
+  transition: all 0.5s;
+}
+
+.thumb:hover a {
+  transform: rotateX(80deg);
+  transform-origin: bottom;
+}
+.thumb a:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 36px;
+  background: inherit;
+  background-size: cover, cover;
+  background-position: bottom;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+}
+.thumb a span {
+  color: white;
+  text-transform: uppercase;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  font: bold 12px/36px "Open Sans";
+  text-align: center;
+  transform: rotateX(-89.99deg);
+  transform-origin: top;
+  z-index: 1;
+}
+.thumb a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
+  opacity: 0.15;
+  transform: rotateX(95deg) translateZ(-80px) scale(0.75);
+  transform-origin: bottom;
+}
+
+.thumb:hover a:before {
+  opacity: 1;
+  box-shadow: 0 0 25px 25px rgba(0, 0, 0, 0.5);
+  transform: rotateX(0) translateZ(-60px) scale(0.85);
+}
+
+
+
 </style>
 

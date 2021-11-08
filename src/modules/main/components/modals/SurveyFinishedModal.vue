@@ -25,7 +25,7 @@
                <div class="agent-container-rightItem" v-for="(result, index) in filterSurveyResult" :key="index">
                  {{ result.name }} <i :class="result.icon"></i>
                  <div class="progress" :style="result.style">
-                   <div class="progress-bar" :class="result.class"  role="progressbar" :style="{'width': Math.floor(Math.random() * 70) + 20 + '%' }" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                   <div class="progress-bar" :class="result.class" role="progressbar" :style="{'width': result.ratio + '%' }" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">%{{ result.ratio }}</div>
                  </div>
                </div>
              </div>
@@ -58,6 +58,7 @@ export default {
       front: true,
       userPoint: 0,
       loadingCounter: false,
+      yuzde: null,
     }
   },
   computed: {

@@ -138,6 +138,7 @@ export default {
             icon: 'fab fa-superpowers',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada.',
             rate: 70,
+            ratio: Math.floor(Math.random() * 70) + 20,
             class: 'bg-info',
             style: ''
         },
@@ -148,6 +149,7 @@ export default {
             icon: 'fab fa-galactic-senate',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada.',
             rate: 30,
+            ratio: Math.floor(Math.random() * 70) + 20,
             class: 'bg-warning',
             style: ''
         },
@@ -158,6 +160,7 @@ export default {
             icon: 'fab fa-galactic-republic',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada.',
             rate: 20,
+            ratio: Math.floor(Math.random() * 70) + 20,
             class: 'bg-success',
             style: ''
         },
@@ -168,6 +171,7 @@ export default {
             icon: 'fas fa-brain',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada.',
             rate: 90,
+            ratio: Math.floor(Math.random() * 70) + 20,
             class: 'bg-dark',
             style: ''
         },
@@ -178,6 +182,7 @@ export default {
             icon: 'fas fa-mug-hot',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada.',
             rate: 40,
+            ratio: Math.floor(Math.random() * 70) + 20,
             class: 'bg-primary',
             style: ''
         },
@@ -188,6 +193,7 @@ export default {
             icon: 'fas fa-reply-all',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada.',
             rate: 60,
+            ratio: Math.floor(Math.random() * 70) + 20,
             class: 'bg-danger',
             style: ''
         },
