@@ -55,7 +55,8 @@
       <div class="page-content" v-else>
         Anketler Yükleniyor... Birkaç Saniye içinde testi çözebilirsin
         <h2><i class="fas fa-spinner fa-pulse"></i></h2>
-        <h1 class="animate__animated animate__bounce">An animated element</h1>
+
+
       </div>
     </div>
 
@@ -95,6 +96,23 @@ export default {
        });
        this.findSurveyQuestion();
     },
+    shuffle(array) {
+      let currentIndex = array.length,  randomIndex;
+
+      // While there remain elements to shuffle...
+      while (currentIndex != 0) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex], array[currentIndex]];
+      }
+
+      return array;
+    },
     findSurveyQuestion() {
      const selectQuestion = this.surveyQuestions.filter((q) => {
         if (q.surveyId == this.surveyData.id) {
@@ -113,12 +131,12 @@ export default {
         }
     }
   },
-  created() {
+  async created() {
     this.findSurveyInfo();
-
+    await this.shuffle(this.question);
     setTimeout(() => {
       this.loadingSurvey = true;
-    }, 5000);
+    }, 1000);
   },
 };
 </script>
@@ -146,6 +164,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 200px;
 }
 
 .question-container {
@@ -170,10 +189,12 @@ export default {
 }
 
 .question-text {
+  z-index: 10;
   display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
-  padding: 10px 0 10px 0;
+  padding: 10px 100px 10px 100px;
 }
 
 .question-options {
