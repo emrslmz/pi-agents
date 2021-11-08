@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="footer-left">
             <router-link to="/">
-              <h6 class="valorant-font pi-agents-logo"><small><i class="fas fa-crosshairs"></i></small> π Agents</h6>
+              <div class="d-flex align-items-end pi-agents-logo"><h5>π</h5> <h6>agents</h6></div>
             </router-link>
           </div>
           <div class="d-flex flex-column">

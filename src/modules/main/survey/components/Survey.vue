@@ -6,7 +6,7 @@
         <h6>Bu ankette toplam soru bulunuyor! Anket sonunda en çok hangi karaktere benzediğini görebilirsin.</h6>
       </div>
       <div class="page-content" v-if="surveyData && loadingSurvey">
-        <div class="question-container" v-for="(que, index) in question" :key="index" :class="questionAnsweredId > index ? 'answered' : ''" v-show="questionAnsweredId >= index">
+        <div class="question-container" v-for="(que, index) in question" :key="index" :class="questionAnsweredId > index ? 'answered' : ''" v-show="questionAnsweredId === index">
           <div class="question-id">{{ index+1 }}</div>
           <div class="question-text">{{ que.text }}</div>
           <div class="question-options">
@@ -44,6 +44,8 @@
 
         </div>
 
+
+
         <div v-if="questionAnsweredId === question.length">
           <router-link to="/survey"><button class="btn try-again-button bg-warning">Tekrar Dene <i class="fas fa-sync-alt"></i></button>
           </router-link>
@@ -55,9 +57,9 @@
       <div class="page-content" v-else>
         Anketler Yükleniyor... Birkaç Saniye içinde testi çözebilirsin
         <h2><i class="fas fa-spinner fa-pulse"></i></h2>
-
-
       </div>
+
+
     </div>
 
     <div>
@@ -168,8 +170,11 @@ export default {
 }
 
 .question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 900px;
-  min-height: 100px;
+  min-height: 200px;
   margin: 20px 0 5px 0;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
