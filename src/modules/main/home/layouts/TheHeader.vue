@@ -1,7 +1,9 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-lg">
-      <div class="d-flex align-items-end"><h3>π</h3> <h5>agents</h5></div>
+      <div class="d-flex align-items-end">
+        <img class="pi-agents-logo" src="/assets/img/icon/pi_agents_logo_black.png" />
+      </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
@@ -87,8 +89,8 @@ a {
   border-radius: 16px;
   text-decoration: none;
   font-weight:400;
-  color:#FFFFFF;
-  background-color: #815fc0;
+  color: #191919;
+  background-color: white;
   position:relative;
 }
 
@@ -124,6 +126,15 @@ a {
 
 .navbar-item__user:hover {
   top: 0.1em;
+}
 
+.pi-agents-logo {
+  transition: 0.5s;
+  width: 120px;
+}
+
+.pi-agents-logo:hover {
+  transition: 0.5s;
+  transform: skewY(-4deg);
 }
 </style>

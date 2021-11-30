@@ -1,8 +1,8 @@
 <template>
   <div>
    <div class="app">
-     <the-header />
-     <home-page v-if="$route.name === 'HomePage'" />
+     <the-header v-if="$route.name !== 'HomePage'" />
+     <home-page v-if="$route.name === 'HomePage'"  />
      <router-view />
      <the-footer />
    </div>

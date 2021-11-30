@@ -1,107 +1,144 @@
 <template>
-  <div class="home-page">
-
-    <div class="thumb">
-      <a href="#">
-        <span>the optimist lives on</span>
-      </a>
+  <div class="page-container">
+    <div class="page-header">
+      <h1>Size en Cok benzeyen Karakter hangisi?</h1>
+      <p>Anketlerimizi bitirerek, karakter yapınızı daha derinden tanıyın!</p>
+    </div>
+    <div class="page-header__canvas"></div>
+    <div class="page-content container">
+      <div class="page-content__img">
+        <img width="400px" src="/assets/img/images/valorant_agents2.jpg" alt="jousto" />
+      </div>
+      <div class="page-content__text">
+        <h3>En güncel oyunlara dair anketleri tamamla!</h3>
+        <ul>
+          <li>Eglenceli zaman geçir</li>
+          <li>Karakteristik özelliklerini ögren</li>
+          <li>Anketler sonunda çıkan Ajanı arakadaslarınla karsılastır</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-content container">
+      <div class="page-content__text">
+        <h3>Kisiliginin hangi karaktere benzedigini ögren!</h3>
+        <ul>
+          <li>Istedigin platformda,</li>
+          <li>Istedigin zamanda,</li>
+          <li>Istedigin oyunla basla!</li>
+        </ul>
+      </div>
+      <div class="page-content__img">
+        <img width="200px" src="/assets/img/images/gta5_cover.jpg" alt="jousto" />
+      </div>
+    </div>
+    <div class="page-footer">
+      <div>
+        <h1><i class="fas fa-angle-double-down"></i> HEMEN BASLA! <i class="fas fa-angle-double-down"></i></h1>
+      </div>
+      <router-link to="/survey">
+        <button class="btn play-button"><i class="fas fa-play"></i> OYNA</button>
+      </router-link>
+      <router-link to="/conditions">
+        <small>Sartlar gecerlidir</small>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage',
+  name: 'HomePages',
 };
 </script>
 
 <style scoped>
-.home-page {
-  min-height: 90vh;
-}
-
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-
-body {
-  background: #ddd;
-  background: linear-gradient(#ddd, #e8e8e8);
-  font-family: 'Open Sans', sans-serif;
-  height: 100vh;
-  margin:0;
-}
-
-.thumb {
-  width: 400px;
-  height: 300px;
-  margin: 70px auto;
-  perspective: 1000px;
-}
-
-.thumb a {
-  display: block;
+.page-container {
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-  url("https://img.fanatik.com.tr/img/78/740x418/60b78234ae298b9ede8dc535.jpg");
-  background-size: 0, cover;
-  transform-style: preserve-3d;
-  transition: all 0.5s;
+  font-family: PassionOne, sans-serif;
+  background: top/cover no-repeat;
+  background-size: 100%;
 }
 
-.thumb:hover a {
-  transform: rotateX(80deg);
-  transform-origin: bottom;
-}
-.thumb a:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 36px;
-  background: inherit;
-  background-size: cover, cover;
-  background-position: bottom;
-  transform: rotateX(90deg);
-  transform-origin: bottom;
-}
-.thumb a span {
-  color: white;
-  text-transform: uppercase;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  font: bold 12px/36px "Open Sans";
-  text-align: center;
-  transform: rotateX(-89.99deg);
-  transform-origin: top;
-  z-index: 1;
-}
-.thumb a:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.5);
-  transition: all 0.5s;
-  opacity: 0.15;
-  transform: rotateX(95deg) translateZ(-80px) scale(0.75);
-  transform-origin: bottom;
+.page-header {
+  background-color: #FED96A;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.thumb:hover a:before {
-  opacity: 1;
-  box-shadow: 0 0 25px 25px rgba(0, 0, 0, 0.5);
-  transform: rotateX(0) translateZ(-60px) scale(0.85);
+.page-header p {
+  font-style: italic;
+  font-size: 18px;
 }
 
+.page-header__canvas {
+  height: 5vh;
+  border-top: 2.5vh solid #e0bf5c;
+  background-color: #c2a54f;
+}
 
+.page-content {
+  padding-top: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.page-content__img {
+  background: top/cover no-repeat;
+  background-size: 100%;
+  transition: 0.5s;
+  margin: 20px 0 20px 0;
+}
+
+.page-content__img img {
+  border-radius: 30px;
+}
+
+.play-button {
+  font-weight: bold;
+  background-color: lightgray;
+  width: 200px;
+  height: 50px;
+  text-shadow: -1px -1px #b8b4b4, 1px 1px white;
+  color: gray;
+  font-size: 20px;
+  border-radius: 7px;
+  box-shadow: 0 .2em gray;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
+  font-family: sans-serif;
+}
+
+.play-button:active {
+  box-shadow: none;
+  position: relative;
+  top: .2em;
+}
+
+.play-button:hover {
+  box-shadow: none;
+  position: relative;
+  top: .2em;
+  color: #ffb700;
+}
+
+.page-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0 50px 0;
+}
+
+.page-footer a {
+  padding-bottom: 5px;
+  color: #575757;
+}
 
 </style>
-

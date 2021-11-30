@@ -84,3 +84,8 @@
     font-family: PassionOne;
     src: url(../fonts/PassionOne-Regular.ttf);
 }
+
+@font-face {
+    font-family: IntoMedium;
+    src: url(../fonts/into-medium.otf);
+}

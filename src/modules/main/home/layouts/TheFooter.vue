@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="footer-left">
             <router-link to="/">
-              <div class="d-flex align-items-end pi-agents-logo"><h5>π</h5> <h6>agents</h6></div>
+              <img class="pi-agents-logo" src="/assets/img/icon/pi_agents_logo_white.png" />
             </router-link>
           </div>
           <div class="d-flex flex-column">
@@ -56,7 +56,7 @@
   bottom: 0;
   left: 0;
   height: 35vh;
-  border-top: 5px solid #6441a5;
+  border-top: 5px solid #FED96A;
   border-right: none;
   border-bottom: none;
   border-left: none;
@@ -91,14 +91,13 @@
 
 .pi-agents-logo {
   transition: 0.5s;
+  width: 120px;
 }
 
 .pi-agents-logo:hover {
   transition: 0.5s;
-  transform: skewY(-2deg);
-  color: #815fc0;
+  transform: skewY(-4deg);
 }
-
 
 .custom-hr {
   width: 100px;
@@ -106,49 +105,6 @@
   border-right: none;
   border-bottom: none;
   border-left: none;
-}
-
-
-
-.header-button button {
-  background-color: white;
-  color: #343A40;
-  border-radius: 10px;
-  font-weight: bold;
-  min-width: 100px;
-  transition: 0.4s;
-  text-decoration: none;
-}
-
-.header-button button:hover {
-  background-color: #6441a5;
-  color: white;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: 0.4s;
-}
-
-.header-button span {
-  background-color: white;
-  color: #343A40;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: 0.4s;
-  min-width: 100px;
-  text-decoration: none;
-}
-
-.header-button a {
-  text-decoration: none;
-}
-
-.header-button span:hover {
-  background-color: #d42053;
-  color: white;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: 0.4s;
-  text-decoration: none;
 }
 
 .show button {
