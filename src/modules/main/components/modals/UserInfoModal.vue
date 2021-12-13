@@ -66,15 +66,24 @@ export default {
   user-select: none;
 }
 
+.modal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+
+}
+
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 
 .modal-container {
-  width: 500px;
-  min-height: 600px;
   margin: 0 auto;
+  width: 30%;
+  min-height: 600px;
   border-radius: 60px 45px 30px 15px/15px 30px 45px 60px;
   background-color: white;
   transition: all 0.3s ease;
@@ -136,7 +145,22 @@ export default {
 }
 
 .pi-agents-logo {
+  padding-top: 10px;
   transition: 0.5s;
   width: 400px;
 }
+
+@media screen and (max-width: 420px) {
+  .pi-agents-logo {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .modal-container {
+    width: 90%;
+  }
+}
+
+
 </style>

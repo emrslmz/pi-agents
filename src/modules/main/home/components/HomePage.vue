@@ -1,16 +1,16 @@
 <template>
   <div class="page-container">
-    <div class="page-header">
+    <div class="page-header px-2">
       <h1>Size en Cok benzeyen Karakter hangisi?</h1>
       <p>Anketlerimizi bitirerek, karakter yapınızı daha derinden tanıyın!</p>
         <a class="btn play-button" href="#hemenBasla"><i class="fas fa-play"></i> OYNA</a>
     </div>
     <div class="page-header__canvas"></div>
-    <div class="page-content container">
+    <div class="page-content container d-md-flex justify-content-center align-items-center">
       <div class="page-content__img">
-        <img width="400px" src="/assets/img/images/valorant_agents2.jpg" alt="jousto" />
+        <img width="300px" src="/assets/img/images/valorant_agents2.jpg" alt="valorantAgents2" />
       </div>
-      <div class="page-content__text">
+      <div class="page-content__text px-md-4">
         <h3>En güncel oyunlara dair anketleri tamamla!</h3>
         <ul>
           <li>Eglenceli zaman geçir</li>
@@ -19,8 +19,8 @@
         </ul>
       </div>
     </div>
-    <div class="page-content container">
-      <div class="page-content__text">
+    <div class="page-content container d-md-flex justify-content-center align-items-center">
+      <div class="page-content__text px-md-4">
         <h3>Kisiliginin hangi karaktere benzedigini ögren!</h3>
         <ul>
           <li>Istedigin platformda,</li>
@@ -29,7 +29,7 @@
         </ul>
       </div>
       <div class="page-content__img">
-        <img width="200px" src="/assets/img/images/gta5_cover.jpg" alt="jousto" />
+        <img width="200px" src="/assets/img/images/gta5_cover.jpg" alt="gta5Cover" />
       </div>
     </div>
     <a name="hemenBasla">
@@ -70,6 +70,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .page-header p {
@@ -85,9 +86,6 @@ export default {
 
 .page-content {
   padding-top: 80px;
-  display: flex;
-  justify-content: space-around;
-  align-items: start;
 }
 
 .page-content__img {
@@ -95,6 +93,9 @@ export default {
   background-size: 100%;
   transition: 0.5s;
   margin: 20px 0 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-content__img img {

@@ -10,14 +10,14 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav mr-auto"></div>
-        <div class="navbar-right">
+        <div class="navbar-right d-md-flex justify-content-center align-items-center">
           <router-link to="/">
-            <p class="navbar-item">Ana Sayfa </p>
+            <p class="navbar-item mt-3 mt-md-0">Ana Sayfa </p>
           </router-link>
           <router-link to="/survey">
-            <p class="navbar-item">Anketler </p>
+            <p class="navbar-item mt-3 mt-md-0">Anketler </p>
           </router-link>
-          <p class="navbar-item__user" @click="setUserInfoModal(true)">
+          <p class="navbar-item__user mt-3 mt-md-0" @click="setUserInfoModal(true)">
             <i class="far fa-user-circle"></i>
             <small class="pl-2" v-if="userName === ''"> İsminizi ögrenebilir miyim?</small>
             <small class="pl-2" v-else> Merhaba, {{ userName }} </small>
@@ -68,12 +68,6 @@ export default {
 a {
   color: #191919;
   text-decoration: none;
-}
-
-.navbar-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .navbar-item {

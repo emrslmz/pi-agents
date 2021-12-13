@@ -13,5 +13,7 @@ export default {
 <style scoped>
 .app {
   /*font-family: PassionOne, sans-serif;*/
+
 }
+
 </style>

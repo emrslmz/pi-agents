@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page">
-      <div class="page-header" v-if="questionAnsweredId !== question.length">
+      <div class="page-header flex-column" v-if="questionAnsweredId !== question.length">
         <h1>{{ surveyData.name }} anketine hos geldin! </h1>
         <h6>Bu ankette toplam soru bulunuyor! Anket sonunda en çok hangi karaktere benzedigini gorebilirsin.</h6>
       </div>
@@ -9,12 +9,12 @@
         <h1>Anketi tamamladın!</h1>
         <img class="survey-finished-img" src="/assets/img/icon/pika_running.gif" />
       </div>
-      <div class="page-header d-flex" v-if="question.length === 0">
+      <div class="page-header" v-if="question.length === 0">
         <h1>Bu ankette hiç soru yok! </h1>
         <img class="survey-finished-img" src="/assets/img/icon/sad_cry.gif" />
       </div>
       <div class="page-content" v-if="surveyData && loadingSurvey">
-        <div class="question-container px-md-5" v-for="(que, index) in question" :key="index" :class="questionAnsweredId > index ? 'answered' : ''" v-show="questionAnsweredId === index">
+        <div class="question-container px-md-5" :style="{'box-shadow': `${boxShadowColor} 0px 5px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px`}" v-for="(que, index) in question" :key="index" :class="questionAnsweredId > index ? 'answered' : ''" v-show="questionAnsweredId === index">
           <div class="question-id">{{ index+1 }}</div>
           <div class="question-text">{{ que.text }}</div>
           <div class="question-options d-sm-flex justify-content-center align-items-center text-center">
@@ -23,36 +23,36 @@
                   class="btn option-definitely-yes"
                   :class="questionAnsweredId > index ? 'option-answered' : ''"
                   :disabled="questionAnsweredId > index"
-                  @click="handleButtonEvent(5)">Kesinlikle evet </button>
+                  @click="handleButtonEvent(5); randomColor()">Kesinlikle evet </button>
               <button
                   class="btn option-yes"
                   :class="questionAnsweredId > index ? 'option-answered' : ''"
                   :disabled="questionAnsweredId > index"
-                  @click="handleButtonEvent(4)">Evet</button>
+                  @click="handleButtonEvent(4); randomColor()">Evet</button>
             </div>
             <div>
               <button
                   class="btn option-sometimes"
                   :class="questionAnsweredId > index ? 'option-answered' : ''"
                   :disabled="questionAnsweredId > index"
-                  @click="handleButtonEvent(3)">Bazen</button>
+                  @click="handleButtonEvent(3); randomColor()">Bazen</button>
               <button
                   class="btn option-rarely"
                   :class="questionAnsweredId > index ? 'option-answered' : ''"
                   :disabled="questionAnsweredId > index"
-                  @click="handleButtonEvent(1)">Nadiren</button>
+                  @click="handleButtonEvent(1); randomColor()">Nadiren</button>
             </div>
            <div>
              <button
                  class="btn option-no"
                  :class="questionAnsweredId > index ? 'option-answered' : ''"
                  :disabled="questionAnsweredId > index"
-                 @click="handleButtonEvent(-3)">Hayır</button>
+                 @click="handleButtonEvent(-3); randomColor()">Hayır</button>
              <button
                  class="btn option-definitely-no"
                  :class="questionAnsweredId > index ? 'option-answered' : ''"
                  :disabled="questionAnsweredId > index"
-                 @click="handleButtonEvent(-5)">Kesinlikle hayır</button>
+                 @click="handleButtonEvent(-5); randomColor()">Kesinlikle hayır</button>
            </div>
 
 <!--            <div class="question-options">-->
@@ -109,6 +109,7 @@ export default {
       userSurveyPoint: 0,
       finished: false,
       loadingSurvey: false,
+      boxShadowColor: '#c2a54f'
     };
   },
   computed: {
@@ -156,6 +157,10 @@ export default {
         if (this.questionAnsweredId === this.question.length) {
           this.finished = true;
         }
+    },
+    randomColor() {
+      const randomColor = Math.floor(Math.random()*16777215).toString(16);
+      this.boxShadowColor = "#" + randomColor;
     }
   },
   async created() {
@@ -170,7 +175,7 @@ export default {
 
 <style scoped>
 .page {
-  min-height: 85vh;
+  min-height: 84.2vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,6 +189,9 @@ export default {
 }
 
 .page-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-family: PassionOne, sans-serif;
 }
@@ -416,7 +424,6 @@ export default {
 .answered {
   opacity: 0.6;
 }
-
 
 .survey-finished-img {
   transition: 0.5s;
