@@ -4,19 +4,20 @@
       <div class="modal-container text-center">
         <div v-for="(agent, index) in filterAgents" :key="index" v-show="userPoint === agent.agentId">
 
-         <div class="d-flex flex-column" v-if="loadingCounter">
+         <div class="agent-container" v-if="loadingCounter">
 
-           <div class="agent-container">
-             <div class="agent-container-left">
-               <img class="agent-picture" :src="'/assets/img/agents/'+ agent.agentPicture" :alt="agent.name" :title="agent.name" />
-               <p><i class="fas fa-user-friends"></i> Seninle beraber {{ agent.numberHave }} kişi aynı kişiliğe sahip!</p>
+           <div>
+             <h5><i class="fas fa-crown"></i> {{ agent.name }} karakterine benziyorsun!</h5>
+           </div>
 
+           <div class="d-xl-flex agent-container__context">
 
+             <div class="col-xl-6 col-12 agent-container__image">
+               <img class="agent-container__img" :src="'/assets/img/agents/'+ agent.agentPicture" :alt="agent.name" :title="agent.name" />
+               <p class="py-3"><i class="fas fa-user-friends"></i> Seninle beraber {{ agent.numberHave }} kişi aynı kişiliğe sahip!</p>
              </div>
-             <div class="agent-container-right">
-               <div class="agent-container-rightItem">
-                 <h5><i class="fas fa-crown"></i> {{ agent.name }} karakterine benziyorsun!</h5>
-               </div>
+
+             <div class="col-xl-6 col-12 agent-container__progress">
                <div class="agent-container-rightItem" v-for="(result, index) in filterSurveyResult" :key="index">
                  {{ result.name }} <i :class="result.icon"></i>
                  <div class="progress" :style="result.style">
@@ -26,11 +27,13 @@
              </div>
            </div>
 
+
            <div class="footer-button">
                <button class="try-again" @click="closeModal">Kapat <i class="fas fa-times-circle"></i></button>
               <a href="https://oyuncudefteri.com" target="_blank"><button class="goto-site">Bana bu karakteri anlat! <i class="fas fa-gavel"></i></button></a>
            </div>
          </div>
+
           <div class="scanning-container" v-else>
             <div class="scanning-picture" style="background-image: url('/assets/img/images/scanning.gif')"></div>
             Analiz yapılıyor...
@@ -79,7 +82,7 @@ export default {
 
     setTimeout(() => {
       this.loadingCounter = true;
-    }, 2000);
+    }, 1000);
 
   },
 };
@@ -110,8 +113,9 @@ export default {
 }
 
 .modal-container {
-  width: 60%;
-  min-height: 80%;
+  width: 50%;
+  height: 80%;
+  overflow: auto;
   margin: 0 auto;
   padding: 20px 30px;
   border-radius: 60px 45px 30px 15px/15px 30px 45px 60px;
@@ -120,30 +124,32 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
-.modal__button {
-  margin: 15px;
-  min-width: 150px;
-  transition: 0.5s;
-  display:inline-block;
-  padding: 0.7em 1.4em;
-  border-radius: 15px;
-  text-decoration:none;
-  text-transform: uppercase;
-  font-weight:400;
-  color:#FFFFFF;
-  box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
-  text-align:center;
-  position:relative;
+.agent-container {
+  flex-direction: column;
 }
 
-.agent-container {
-  display: flex;
-  justify-content: space-around;
+.agent-container__context {
+  justify-content: center;
   align-items: center;
 }
 
-.agent-container-left {
+.agent-container__image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
+  align-items: center;
+}
+
+.agent-container__img {
+  width: 200px;
+  height: auto;
+}
+
+
+.agent-container__progress {
+  justify-content: center;
+  align-items: center;
 }
 
 .agent-container-right {
@@ -172,10 +178,7 @@ export default {
   font-size: 16px;
 }
 
-.agent-picture {
-  width: auto;
-  height: 500px;
-}
+
 
 .scanning-container {
   display: flex;
@@ -258,5 +261,17 @@ export default {
 .footer-button button.goto-site:hover {
   top:2px;
   box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0,0,0,.3);
+}
+
+@media screen and (max-width: 1400px) {
+  .modal-container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .modal-container {
+    width: 50%;
+  }
 }
 </style>

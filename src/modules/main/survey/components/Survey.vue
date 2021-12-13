@@ -77,14 +77,14 @@
         </div>
 
         <div class="question-after-button" v-else-if="question.length === 0">
-          <router-link to="/">
-            <button class="go-home">Ana Sayfa <i class="fas fa-home"></i></button>
+          <router-link to="/survey">
+            <button class="go-home">Anketler sayfasına git</button>
           </router-link>
         </div>
       </div>
-      <div class="page-content" v-else>
+      <div class="page-content py-4" v-else>
         Anketler Yükleniyor... Birkaç Saniye içinde testi çözebilirsin
-        <h2><i class="fas fa-spinner fa-pulse"></i></h2>
+        <h2 class="my-2"><i class="fas fa-spinner fa-pulse"></i></h2>
       </div>
     </div>
     <div>

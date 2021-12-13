@@ -38,7 +38,7 @@
         <h1><i class="fas fa-angle-double-down"></i> HEMEN BASLA! <i class="fas fa-angle-double-down"></i></h1>
       </div>
       <router-link to="/survey">
-        <button class="btn play-button"><i class="fas fa-play"></i> OYNA</button>
+        <button class="btn play-button"><i class="fas fa-play"></i> BURADAN</button>
       </router-link>
       <router-link to="/conditions">
         <small>Sartlar gecerlidir</small>
