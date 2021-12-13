@@ -19,7 +19,7 @@
           </router-link>
           <p class="navbar-item__user" @click="setUserInfoModal(true)">
             <i class="far fa-user-circle"></i>
-            <small class="pl-2" v-if="userName === ''"> İsminizi öğrenebilir miyim?</small>
+            <small class="pl-2" v-if="userName === ''"> İsminizi ögrenebilir miyim?</small>
             <small class="pl-2" v-else> Merhaba, {{ userName }} </small>
           </p>
 
@@ -58,6 +58,11 @@ export default {
 <style scoped>
 .navbar {
   color: #191919;
+  font-family: PassionOne, sans-serif;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
 }
 
 a {
@@ -94,11 +99,6 @@ a {
   position:relative;
 }
 
-.navbar-item:hover {
-  opacity: 1;
-  transition: 0.4s;
-  top: 0.1em;
-}
 
 .navbar-item__user {
   background-color: #9bdc28;
@@ -117,7 +117,6 @@ a {
   align-items: center;
   margin: 0 5px 0 5px;
   text-decoration: none;
-  font-weight:400;
   color:#FFFFFF;
   text-align:center;
   position:relative;

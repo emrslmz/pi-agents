@@ -7,8 +7,8 @@
           <h6>Ankete gitmek için bir kategori seç!</h6>
         </div>
         <div class="d-flex flex-column justify-content-center" v-else>
-          <h6>Mevcut anketleri görmek için gerekli bilgileri girmen gerekir!</h6>
-          <button class="page-header__button btn" @click="setUserInfoModal(true)">İsminizi öğrenebilir miyim?</button>
+          <h6> Mevcut anketleri gormek için gerekli bilgileri girmen gerekir</h6>
+          <button class="page-header__button btn" @click="setUserInfoModal(true)">İsminizi ögrenebilir miyim?</button>
         </div>
       </div>
       <div class="page-container container">
@@ -24,7 +24,9 @@
       </div>
 
       <div class="page-footer">
-        <small>Learn about the terms and conditions</small>
+        <router-link to="/conditions">
+          <small>Şartlar ve koşullar hakkında bilgi edinin</small>
+        </router-link>
       </div>
 
     </div>
@@ -57,6 +59,8 @@ export default {
   align-items: center;
   flex-direction: column;
   padding-bottom: 50px;
+  color: #191919;
+  font-family: PassionOne, sans-serif;
 }
 
 .page-header {
@@ -101,5 +105,9 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.page-footer a {
+  color: #575757;
 }
 </style>

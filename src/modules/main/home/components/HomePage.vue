@@ -3,6 +3,7 @@
     <div class="page-header">
       <h1>Size en Cok benzeyen Karakter hangisi?</h1>
       <p>Anketlerimizi bitirerek, karakter yapınızı daha derinden tanıyın!</p>
+        <a class="btn play-button" href="#hemenBasla"><i class="fas fa-play"></i> OYNA</a>
     </div>
     <div class="page-header__canvas"></div>
     <div class="page-content container">
@@ -31,6 +32,7 @@
         <img width="200px" src="/assets/img/images/gta5_cover.jpg" alt="jousto" />
       </div>
     </div>
+    <a name="hemenBasla">
     <div class="page-footer">
       <div>
         <h1><i class="fas fa-angle-double-down"></i> HEMEN BASLA! <i class="fas fa-angle-double-down"></i></h1>
@@ -42,6 +44,7 @@
         <small>Sartlar gecerlidir</small>
       </router-link>
     </div>
+    </a>
   </div>
 </template>
 
@@ -113,6 +116,9 @@ export default {
   -ms-user-select: none;      /* IE 10+ */
   user-select: none;
   font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .play-button:active {
@@ -141,4 +147,7 @@ export default {
   color: #575757;
 }
 
+a {
+  text-decoration: none;
+}
 </style>

@@ -3,13 +3,14 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div class="modal-card">
+          <img class="pi-agents-logo" src="/assets/img/icon/walking_man_with_wood.gif" />
           <div class="text-center">
             <h2>Hey,</h2>
             <p>seni tanımamız için ismini yaz!</p>
             <input class="modal__input" placeholder="Bir isim gir!" v-model="name" type="text" />
             <div>
               <button class="btn modal__button modal__button-danger" @click="$emit('close')">Kapat <i class="fas fa-times-circle"></i></button>
-                <button class="btn modal__button" v-if="name.length > 2" @click="setGO(name)">Go <i class="fas fa-chevron-circle-right"></i></button>
+                <button class="btn modal__button" v-if="name.length > 2" @click="setGO(name)">Devam <i class="fas fa-chevron-circle-right"></i></button>
             </div>
           </div>
       </div>
@@ -67,14 +68,14 @@ export default {
 
 .modal-container {
   width: 500px;
-  min-height: 400px;
+  min-height: 600px;
   margin: 0 auto;
-  border-radius: 15px;
+  border-radius: 60px 45px 30px 15px/15px 30px 45px 60px;
   background-color: white;
   transition: all 0.3s ease;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
@@ -100,7 +101,7 @@ export default {
   text-transform: uppercase;
   font-weight:400;
   color:#FFFFFF;
-  background-color: #6441a5;
+  background-color: #9bdc28;
   box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
   text-align:center;
   position:relative;
@@ -127,5 +128,11 @@ export default {
 .modal__button-danger:hover {
   background-image: radial-gradient(circle 248px at center, #f76b8c 0%, #f42a5a 47%, #8a1b35 100%);
   transition: 0.5s;
+}
+
+
+.pi-agents-logo {
+  transition: 0.5s;
+  width: 400px;
 }
 </style>
