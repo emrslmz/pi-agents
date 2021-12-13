@@ -285,10 +285,10 @@ export default {
 }
 
 .question-options button.option-yes {
-  background: repeating-linear-gradient( 45deg, #2ff5de, #2fbef6 5px, #248cfc 5px, #3fbccc 10px);
-  box-shadow: 0 6px 0 #286b86, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #205e6d, 0 12px 0 5px #2e7f82, 0 15px 0 5px #164a4c, 0 15px 1px 6px rgba(0,0,0,.3);
-  border-bottom: 3px solid rgb(29, 104, 117);
-  text-shadow: 2px 2px 1px #286586, -2px 2px 1px #287e86, 2px -2px 1px #286886, -2px -2px 1px #287086, 0px 2px 1px #286b86, 0px -2px 1px #287086, 0px 4px 1px #16394c, 2px 4px 1px #16414c, -2px 4px 1px #16394c;
+  background: repeating-linear-gradient( 45deg, #2ff5f5, #2fc8f6 5px, #24fcdc 5px, #3fa4cc 10px);
+  box-shadow: 0 6px 0 #28867e, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #206d5e, 0 12px 0 5px #2e827b, 0 15px 0 5px #164c4a, 0 15px 1px 6px rgba(0,0,0,.3);
+  border-bottom: 3px solid rgb(29, 117, 92);
+  text-shadow: 2px 2px 1px #288386, -2px 2px 1px #287386, 2px -2px 1px #28867e, -2px -2px 1px #287086, 0px 2px 1px #286b86, 0px -2px 1px #288386, 0px 4px 1px #16444c, 2px 4px 1px #164c47, -2px 4px 1px #16474c;
 }
 .question-options button.option-yes:hover {
   top:2px;

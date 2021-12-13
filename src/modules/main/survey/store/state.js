@@ -6,6 +6,7 @@ export default {
             minName: 'VALO',
             image: 'valorant_heros.png',
             active: true,
+            visibility: true,
         },
         {
             id: 2,
@@ -13,6 +14,7 @@ export default {
             minName: 'MC',
             image: 'minecraft_cadi.png',
             active: true,
+            visibility: true,
         },
         {
             id: 3,
@@ -20,6 +22,7 @@ export default {
             minName: 'Zula',
             image: 'zula_cover.png',
             active: false,
+            visibility: false,
         },
         {
             id: 4,
@@ -27,6 +30,7 @@ export default {
             minName: 'GTA5',
             image: 'gta5_cover.jpg',
             active: false,
+            visibility: true,
         },
         {
             id: 5,
@@ -34,6 +38,7 @@ export default {
             minName: 'AteşVeSu',
             image: 'fireboy_watergirl.png',
             active: false,
+            visibility: false,
         },
         {
             id: 6,
@@ -41,6 +46,7 @@ export default {
             minName: 'ETS',
             image: 'euro_truck_simulator_cover.png',
             active: false,
+            visibility: false,
         },
     ],
     surveyQuestions: [

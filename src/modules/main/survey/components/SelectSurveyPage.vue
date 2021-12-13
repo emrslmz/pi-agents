@@ -13,7 +13,7 @@
       </div>
       <div class="page-container container">
         <div class="page-content row" v-if="userName">
-          <div class="page-survey__card col-12 col-sm-12 col-md-6 col-xl-4" v-for="(sur, index) in surveyCategory" :key="index">
+          <div class="page-survey__card col-12 col-sm-12 col-md-6 col-xl-4" v-for="(sur, index) in surveyCategory" :key="index" v-show="sur.visibility">
             <survey-card
                 :id="sur.id"
                 :survey="sur"  />
@@ -23,7 +23,7 @@
 
       <div class="page-footer">
         <router-link to="/conditions">
-          <small>Şartlar ve koşullar hakkında bilgi edinin</small>
+          <small><i class="fas fa-shield-alt"></i> Sartlar ve kosullar hakkında bilgi edinin</small>
         </router-link>
       </div>
 
