@@ -9,13 +9,8 @@
            <div class="agent-container">
              <div class="agent-container-left">
                <img class="agent-picture" :src="'/assets/img/agents/'+ agent.agentPicture" :alt="agent.name" :title="agent.name" />
-               <div class="agent-info text-left">
-                 <h6><i class="fas fa-info-circle"></i> Karakter hakkında bazı bilgiler!</h6>
-                 <p><i class="fas fa-barcode"></i> {{ agent.name }} karakterine sahip olan kişiler<span class="blur-text"> gerçekten çok önemli bir ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada. Ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada... </span><a
-                     href="https://oyuncudefteri.com" target="_blank"><i>devamını okumak için tıklayın</i></a></p>
-                 <p><i class="fas fa-user-friends"></i> Seninle beraber {{ agent.numberHave }} kişi aynı kişiliğe sahip!</p>
-                 <p><i class="fas fa-gavel"></i> Kişiliğin hakkında daha fazla bilgiye <a href="https://oyuncudefteri.com" target="_blank"> erişmek için tıkla!</a></p>
-               </div>
+               <p><i class="fas fa-user-friends"></i> Seninle beraber {{ agent.numberHave }} kişi aynı kişiliğe sahip!</p>
+
 
              </div>
              <div class="agent-container-right">
@@ -30,9 +25,10 @@
                </div>
              </div>
            </div>
-           <div>
-             <button class="btn modal__button bg-primary" @click="closeModal">Kapat <i class="fas fa-times-circle"></i></button>
-             <a href="https://oyuncudefteri.com" target="_blank"><button class="btn modal__button bg-success">Bana bu karakteri anlat! <i class="fas fa-gavel"></i></button></a>
+
+           <div class="footer-button">
+               <button class="try-again" @click="closeModal">Kapat <i class="fas fa-times-circle"></i></button>
+              <a href="https://oyuncudefteri.com" target="_blank"><button class="goto-site">Bana bu karakteri anlat! <i class="fas fa-gavel"></i></button></a>
            </div>
          </div>
           <div class="scanning-container" v-else>
@@ -100,7 +96,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   display: table;
   transition: opacity 0.3s ease;
-
+  font-family: CarterOne, sans-serif;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -118,7 +114,7 @@ export default {
   min-height: 80%;
   margin: 0 auto;
   padding: 20px 30px;
-  border-radius: 15px;
+  border-radius: 60px 45px 30px 15px/15px 30px 45px 60px;
   background-color: white;
   transition: all 0.3s ease;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
@@ -199,5 +195,68 @@ export default {
 .blur-text {
   text-shadow: 0 0 6px #575757;
   color: transparent;
+}
+
+
+.footer-button button {
+  font-family: CarterOne, sans-serif;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  text-decoration: none !important;
+  outline: none !important;
+  font-size: 16px;
+  min-width: 220px;
+  min-height: 30px;
+  line-height: 1.5em;
+  letter-spacing: .1em;
+  border: none;
+  margin: 15px 15px 30px;
+  border-top: 3px solid rgba(255,255,255,.3);
+  color: #fff !important;
+  border-radius: 8px;
+}
+
+.footer-button button::before {
+  content: '';
+  height: 10%;
+  position: absolute;
+  width: 40%;
+  background: #fff;
+  right: 13%;
+  top: -3%;
+  border-radius: 99px;
+}
+.footer-button button::after {
+  content: '';
+  height: 10%;
+  position: absolute;
+  width: 5%;
+  background: #fff;
+  right: 5%;
+  top: -3%;
+  border-radius: 99px;
+}
+
+.footer-button button.try-again {
+  background: repeating-linear-gradient( 45deg, #ffc800, #ffc800 5px, #ffc200 5px, #ffc200 10px);
+  box-shadow: 0 6px 0 #b76113, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #75421f, 0 12px 0 5px #8a542b, 0 15px 0 5px #593116, 0 15px 1px 6px rgba(0,0,0,.3);
+  border-bottom: 3px solid rgba(205, 102, 0, 0.5);
+  text-shadow: 2px 2px 1px #e78700, -2px 2px 1px #e78700, 2px -2px 1px #e78700, -2px -2px 1px #e78700, 0px 2px 1px #e78700, 0px -2px 1px #e78700, 0px 4px 1px #c96100, 2px 4px 1px #c96100, -2px 4px 1px  #c96100;
+}
+.footer-button button.try-again:hover {
+  top:2px;
+  box-shadow: 0 4px 0 #b76113, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #75421f, 0 10px 0 5px #8a542b, 0 13px 0 5px #593116, 0 13px 1px 6px rgba(0,0,0,.3);
+}
+
+.footer-button button.goto-site {
+  background: repeating-linear-gradient( 45deg, #54d440, #54d440 5px, #52cc3f 5px, #52cc3f 10px);
+  box-shadow: 0 6px 0 #348628, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #2a6d20, 0 12px 0 5px #39822e, 0 15px 0 5px #1d4c16, 0 15px 1px 6px rgba(0,0,0,.3);
+  border-bottom: 3px solid rgba(40, 117, 29, 0.5);
+  text-shadow: 2px 2px 1px #348628, -2px 2px 1px #348628, 2px -2px 1px #348628, -2px -2px 1px #348628, 0px 2px 1px #348628, 0px -2px 1px #348628, 0px 4px 1px #1d4c16, 2px 4px 1px #1d4c16, -2px 4px 1px #1d4c16;
+}
+.footer-button button.goto-site:hover {
+  top:2px;
+  box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0,0,0,.3);
 }
 </style>

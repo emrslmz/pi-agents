@@ -2,11 +2,16 @@
   <div>
     <div class="page">
       <div class="page-header" v-if="questionAnsweredId !== question.length">
-        <h1>{{ surveyData.name }} anketine hoş geldin! </h1>
-        <h6>Bu ankette toplam soru bulunuyor! Anket sonunda en çok hangi karaktere benzediğini görebilirsin.</h6>
+        <h1>{{ surveyData.name }} anketine hos geldin! </h1>
+        <h6>Bu ankette toplam soru bulunuyor! Anket sonunda en çok hangi karaktere benzedigini gorebilirsin.</h6>
       </div>
-      <div class="page-header" v-else>
-        <h6>Anketi tamamladın!</h6>
+      <div class="page-header" v-else-if="questionAnsweredId === question.length && question.length !== 0">
+        <h1>Anketi tamamladın!</h1>
+        <img class="survey-finished-img" src="/assets/img/icon/pika_running.gif" />
+      </div>
+      <div class="page-header d-flex" v-if="question.length === 0">
+        <h1>Bu ankette hiç soru yok! </h1>
+        <img class="survey-finished-img" src="/assets/img/icon/sad_cry.gif" />
       </div>
       <div class="page-content" v-if="surveyData && loadingSurvey">
         <div class="question-container px-md-5" v-for="(que, index) in question" :key="index" :class="questionAnsweredId > index ? 'answered' : ''" v-show="questionAnsweredId === index">
@@ -25,16 +30,18 @@
                   :disabled="questionAnsweredId > index"
                   @click="handleButtonEvent(4)">Evet</button>
             </div>
-            <button
-                class="btn option-sometimes"
-                :class="questionAnsweredId > index ? 'option-answered' : ''"
-                :disabled="questionAnsweredId > index"
-                @click="handleButtonEvent(3)">Bazen</button>
-            <button
-                class="btn option-rarely"
-                :class="questionAnsweredId > index ? 'option-answered' : ''"
-                :disabled="questionAnsweredId > index"
-                @click="handleButtonEvent(1)">Nadiren</button>
+            <div>
+              <button
+                  class="btn option-sometimes"
+                  :class="questionAnsweredId > index ? 'option-answered' : ''"
+                  :disabled="questionAnsweredId > index"
+                  @click="handleButtonEvent(3)">Bazen</button>
+              <button
+                  class="btn option-rarely"
+                  :class="questionAnsweredId > index ? 'option-answered' : ''"
+                  :disabled="questionAnsweredId > index"
+                  @click="handleButtonEvent(1)">Nadiren</button>
+            </div>
            <div>
              <button
                  class="btn option-no"
@@ -60,7 +67,7 @@
           </div>
         </div>
 
-        <div class="question-after-button" v-if="questionAnsweredId === question.length">
+        <div class="question-after-button" v-if="questionAnsweredId === question.length && question.length !== 0">
           <router-link to="/survey">
             <button class="try-again">Tekrar Dene <i class="fas fa-sync-alt"></i></button>
           </router-link>
@@ -69,18 +76,17 @@
           </router-link>
         </div>
 
+        <div class="question-after-button" v-else-if="question.length === 0">
+          <router-link to="/">
+            <button class="go-home">Ana Sayfa <i class="fas fa-home"></i></button>
+          </router-link>
+        </div>
       </div>
       <div class="page-content" v-else>
         Anketler Yükleniyor... Birkaç Saniye içinde testi çözebilirsin
         <h2><i class="fas fa-spinner fa-pulse"></i></h2>
       </div>
-
-
     </div>
-
-<!--    <img class="custom-picture" src="/assets/img/icon/walking_man_with_gun.gif" />-->
-
-
     <div>
       <survey-finished-modal v-if="finished" @close="finished = false" />
     </div>
@@ -163,7 +169,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Carter+One');
 .page {
   min-height: 85vh;
   display: flex;
@@ -175,10 +180,12 @@ export default {
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+  font-family: CarterOne, sans-serif;
 }
 
 .page-header {
   text-align: center;
+  font-family: PassionOne, sans-serif;
 }
 
 .page-content {
@@ -194,6 +201,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   min-height: 200px;
+  max-width: 1100px;
   margin: 20px 10px 5px 10px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
@@ -217,8 +225,8 @@ export default {
   z-index: 10;
   display: flex;
   text-align: center;
+  width: auto;
   justify-content: center;
-  align-items: center;
   padding: 10px 100px 10px 100px;
 }
 
@@ -232,7 +240,6 @@ export default {
   cursor: pointer;
   text-decoration: none !important;
   outline: none !important;
-  font-family: 'Carter One', sans-serif;
   font-size: 12px;
   min-width: 90px;
   min-height: 30px;
@@ -341,7 +348,6 @@ export default {
   cursor: pointer;
   text-decoration: none !important;
   outline: none !important;
-  font-family: 'Carter One', sans-serif;
   font-size: 20px;
   min-width: 90px;
   min-height: 30px;
@@ -412,9 +418,9 @@ export default {
 }
 
 
-.custom-picture {
+.survey-finished-img {
   transition: 0.5s;
-  width: 400px;
+  width: 100px;
 }
 
 @media screen and (max-width: 852px) {
