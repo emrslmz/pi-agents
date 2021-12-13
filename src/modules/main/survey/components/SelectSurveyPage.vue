@@ -19,8 +19,6 @@
                 :survey="sur"  />
           </div>
         </div>
-        <div v-else>
-        </div>
       </div>
 
       <div class="page-footer">

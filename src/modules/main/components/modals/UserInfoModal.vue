@@ -59,6 +59,11 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   display: table;
   transition: opacity 0.3s ease;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  -o-user-select: none;
+  user-select: none;
 }
 
 .modal-wrapper {
@@ -129,7 +134,6 @@ export default {
   background-image: radial-gradient(circle 248px at center, #f76b8c 0%, #f42a5a 47%, #8a1b35 100%);
   transition: 0.5s;
 }
-
 
 .pi-agents-logo {
   transition: 0.5s;

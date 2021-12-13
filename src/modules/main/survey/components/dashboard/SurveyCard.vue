@@ -7,14 +7,14 @@
       <div class="card-content">
         <h2>{{ survey.name }}</h2>
         <div class="card-content__question">
-          <h4>Soru Sayısı: <b>7</b></h4>
+          <h4>Soru Sayısı: <b>{{ getInfoSurvey.length }}</b></h4>
         </div>
         <div class="card-content__time">
-          <h4>Süre: <b>5 min.</b></h4>
+          <h4>Süre: <b>{{ getInfoSurvey.length > 3 ? getInfoSurvey.length - 3 : getInfoSurvey.length}} dk.</b></h4>
         </div>
         <div :disabled="!survey.active">
           <router-link :class="survey.active ? '' : 'cursor_notAllowed'" :to="survey.active ? { name: 'SurveySide', params: { id }} : ''">
-            Şimdi başla
+            Simdi basla
           </router-link>
         </div>
       </div>
@@ -23,9 +23,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'SurveyCard',
   props: ['id', 'survey'],
+  computed: {
+    ...mapState('Survey', ['surveyQuestions']),
+    getInfoSurvey() {
+     return this.surveyQuestions.filter(s => s.surveyId === this.id);
+    }
+  }
+
 };
 </script>
 
@@ -64,7 +73,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #6441a5;
+  background: #c2a54f;
   clip-path: circle(150px at 80% 20%);
   transition: 0.5s ease-in-out;
 }
@@ -79,7 +88,6 @@ export default {
   top: 30%;
   left: -20%;
   font-size: 12em;
-  font-weight: 800;
   font-style: italic;
   color: rgba(255,255,25,0.05)
 }
@@ -121,9 +129,8 @@ export default {
   height: 200px;
 }
 
-.container .card .card-content h2{
+.container .card .card-content h2 {
   position: relative;
-  font-weight: 600;
   letter-spacing: 1px;
   color: #fff;
   margin: 0;
@@ -166,14 +173,13 @@ export default {
   margin-right: 10px;
 }
 
-.container .card .card-content a{
+.container .card .card-content a {
   display: inline-block;
   padding: 10px 20px;
   background: #fff;
   border-radius: 4px;
   margin-top: 10px;
   text-decoration: none;
-  font-weight: 600;
   color: #111;
   opacity: 0;
   transform: translateY(50px);
@@ -185,4 +191,7 @@ export default {
   transform: translateY(0px);
   transition-delay: 0.75s;
 }
+
+
+
 </style>
