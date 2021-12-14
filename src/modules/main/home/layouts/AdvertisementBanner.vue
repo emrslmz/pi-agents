@@ -15,8 +15,8 @@ export default {
       show: true,
     };
   },
-  created() {
-   this.number = Math.floor(Math.random() * 4) + 1;  // 1 veya 2 çıkabilir
+  async created() {
+    this.number = await Math.floor(Math.random() * 3) + 1;  // 1 veya 2 çıkabilir
   }
 };
 </script>
