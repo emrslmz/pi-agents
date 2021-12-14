@@ -4,35 +4,42 @@
       <div class="modal-container text-center">
         <div v-for="(agent, index) in filterAgents" :key="index" v-show="userPoint === agent.agentId">
 
-         <div class="agent-container" v-if="loadingCounter">
+          <div class="agent-container" v-if="loadingCounter">
 
-           <div>
-             <h5><i class="fas fa-crown"></i> {{ agent.name }} karakterine benziyorsun!</h5>
-           </div>
+            <div>
+              <h5><i class="fas fa-crown"></i> {{ agent.name }} karakterine benziyorsun!</h5>
+            </div>
 
-           <div class="d-xl-flex agent-container__context">
+            <div class="d-xl-flex agent-container__context">
 
-             <div class="col-xl-6 col-12 agent-container__image">
-               <img class="agent-container__img" :src="'/assets/img/agents/'+ agent.agentPicture" :alt="agent.name" :title="agent.name" />
-               <p class="py-3"><i class="fas fa-user-friends"></i> Seninle beraber {{ agent.numberHave }} kişi aynı kişiliğe sahip!</p>
-             </div>
+              <div class="col-xl-6 col-12 agent-container__image">
+                <img class="agent-container__img" :src="'/assets/img/agents/'+ agent.agentPicture" :alt="agent.name"
+                     :title="agent.name"/>
+                <p class="py-3"><i class="fas fa-user-friends"></i> Seninle beraber {{ agent.numberHave }} kişi aynı
+                  kişiliğe sahip!</p>
+              </div>
 
-             <div class="col-xl-6 col-12 agent-container__progress">
-               <div class="agent-container-rightItem" v-for="(result, index) in filterSurveyResult" :key="index">
-                 {{ result.name }} <i :class="result.icon"></i>
-                 <div class="progress" :style="result.style">
-                   <div class="progress-bar" :class="result.class" role="progressbar" :style="{'width': result.ratio + '%' }" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">%{{ result.ratio }}</div>
-                 </div>
-               </div>
-             </div>
-           </div>
+              <div class="col-xl-6 col-12 agent-container__progress">
+                <div class="agent-container-rightItem" v-for="(result, index) in filterSurveyResult" :key="index">
+                  {{ result.name }} <i :class="result.icon"></i>
+                  <div class="progress" :style="result.style">
+                    <div class="progress-bar" :class="result.class" role="progressbar"
+                         :style="{'width': result.ratio + '%' }" aria-valuenow="100" aria-valuemin="0"
+                         aria-valuemax="100">%{{ result.ratio }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
-           <div class="footer-button">
-               <button class="try-again" @click="closeModal">Kapat <i class="fas fa-times-circle"></i></button>
-              <a href="https://oyuncudefteri.com" target="_blank"><button class="goto-site">Bana bu karakteri anlat! <i class="fas fa-gavel"></i></button></a>
-           </div>
-         </div>
+            <div class="footer-button">
+              <button class="try-again" @click="closeModal">Kapat <i class="fas fa-times-circle"></i></button>
+              <a href="https://oyuncudefteri.com" target="_blank">
+                <button class="goto-site">Bana bu karakteri anlat! <i class="fas fa-gavel"></i></button>
+              </a>
+            </div>
+          </div>
 
           <div class="scanning-container" v-else>
             <div class="scanning-picture" style="background-image: url('/assets/img/images/scanning.gif')"></div>
@@ -48,7 +55,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import {mapState} from 'vuex';
 
 export default {
   name: 'FinishedModal',
@@ -179,7 +186,6 @@ export default {
 }
 
 
-
 .scanning-container {
   display: flex;
   flex-direction: column;
@@ -215,7 +221,7 @@ export default {
   letter-spacing: .1em;
   border: none;
   margin: 15px 15px 30px;
-  border-top: 3px solid rgba(255,255,255,.3);
+  border-top: 3px solid rgba(255, 255, 255, .3);
   color: #fff !important;
   border-radius: 8px;
 }
@@ -230,6 +236,7 @@ export default {
   top: -3%;
   border-radius: 99px;
 }
+
 .footer-button button::after {
   content: '';
   height: 10%;
@@ -242,25 +249,27 @@ export default {
 }
 
 .footer-button button.try-again {
-  background: repeating-linear-gradient( 45deg, #ffc800, #ffc800 5px, #ffc200 5px, #ffc200 10px);
-  box-shadow: 0 6px 0 #b76113, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #75421f, 0 12px 0 5px #8a542b, 0 15px 0 5px #593116, 0 15px 1px 6px rgba(0,0,0,.3);
+  background: repeating-linear-gradient(45deg, #ffc800, #ffc800 5px, #ffc200 5px, #ffc200 10px);
+  box-shadow: 0 6px 0 #b76113, 0 8px 1px 1px rgba(0, 0, 0, .3), 0 10px 0 5px #75421f, 0 12px 0 5px #8a542b, 0 15px 0 5px #593116, 0 15px 1px 6px rgba(0, 0, 0, .3);
   border-bottom: 3px solid rgba(205, 102, 0, 0.5);
-  text-shadow: 2px 2px 1px #e78700, -2px 2px 1px #e78700, 2px -2px 1px #e78700, -2px -2px 1px #e78700, 0px 2px 1px #e78700, 0px -2px 1px #e78700, 0px 4px 1px #c96100, 2px 4px 1px #c96100, -2px 4px 1px  #c96100;
+  text-shadow: 2px 2px 1px #e78700, -2px 2px 1px #e78700, 2px -2px 1px #e78700, -2px -2px 1px #e78700, 0px 2px 1px #e78700, 0px -2px 1px #e78700, 0px 4px 1px #c96100, 2px 4px 1px #c96100, -2px 4px 1px #c96100;
 }
+
 .footer-button button.try-again:hover {
-  top:2px;
-  box-shadow: 0 4px 0 #b76113, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #75421f, 0 10px 0 5px #8a542b, 0 13px 0 5px #593116, 0 13px 1px 6px rgba(0,0,0,.3);
+  top: 2px;
+  box-shadow: 0 4px 0 #b76113, 0 6px 1px 1px rgba(0, 0, 0, .3), 0 8px 0 5px #75421f, 0 10px 0 5px #8a542b, 0 13px 0 5px #593116, 0 13px 1px 6px rgba(0, 0, 0, .3);
 }
 
 .footer-button button.goto-site {
-  background: repeating-linear-gradient( 45deg, #54d440, #54d440 5px, #52cc3f 5px, #52cc3f 10px);
-  box-shadow: 0 6px 0 #348628, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #2a6d20, 0 12px 0 5px #39822e, 0 15px 0 5px #1d4c16, 0 15px 1px 6px rgba(0,0,0,.3);
+  background: repeating-linear-gradient(45deg, #54d440, #54d440 5px, #52cc3f 5px, #52cc3f 10px);
+  box-shadow: 0 6px 0 #348628, 0 8px 1px 1px rgba(0, 0, 0, .3), 0 10px 0 5px #2a6d20, 0 12px 0 5px #39822e, 0 15px 0 5px #1d4c16, 0 15px 1px 6px rgba(0, 0, 0, .3);
   border-bottom: 3px solid rgba(40, 117, 29, 0.5);
   text-shadow: 2px 2px 1px #348628, -2px 2px 1px #348628, 2px -2px 1px #348628, -2px -2px 1px #348628, 0px 2px 1px #348628, 0px -2px 1px #348628, 0px 4px 1px #1d4c16, 2px 4px 1px #1d4c16, -2px 4px 1px #1d4c16;
 }
+
 .footer-button button.goto-site:hover {
-  top:2px;
-  box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0,0,0,.3);
+  top: 2px;
+  box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0, 0, 0, .3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0, 0, 0, .3);
 }
 
 @media screen and (max-width: 1400px) {
@@ -271,7 +280,13 @@ export default {
 
 @media screen and (max-width: 1200px) {
   .modal-container {
-    width: 50%;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .modal-container {
+    width: 90%;
   }
 }
 </style>
