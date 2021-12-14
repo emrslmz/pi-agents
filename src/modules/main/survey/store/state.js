@@ -125,5 +125,10 @@ export default {
             surveyId: 1,
             text: 'Karşı takıma yüksek rütbeli bir oyuncu smurf hesabıyla gelirse, pes edip teslim olma oylamasını başlatırım',
         },
+        {
+            id: 16,
+            surveyId: 2,
+            text: 'Karşı takıma yüksek rütbeli bir oyuncu smurf hesabıyla gelirse, pes edip teslim olma oylamasını başlatırım',
+        },
     ]
 };

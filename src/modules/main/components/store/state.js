@@ -128,6 +128,14 @@ export default {
             agentPicture: 'val_yoru.png',
             numberHave: 3912,
         },
+        {
+            id: 17,
+            agentId: 1,
+            name: 'Yoru',
+            agentSurveyCategoryId: 2,
+            agentPicture: 'val_yoru.png',
+            numberHave: 3912,
+        },
 
     ],
     surveyResult: [
@@ -193,6 +201,17 @@ export default {
             icon: 'fas fa-reply-all',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada.',
             rate: 60,
+            ratio: Math.floor(Math.random() * 70) + 20,
+            class: 'bg-danger',
+            style: ''
+        },
+        {
+            id: 7,
+            resultSurveyCategoryId: 2,
+            name: 'Minecraft',
+            icon: 'fas fa-reply-all',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus ac nisi ut malesuada.',
+            rate: 30,
             ratio: Math.floor(Math.random() * 70) + 20,
             class: 'bg-danger',
             style: ''

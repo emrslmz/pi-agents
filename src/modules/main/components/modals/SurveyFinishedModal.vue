@@ -38,6 +38,10 @@
               <a href="https://oyuncudefteri.com" target="_blank">
                 <button class="goto-site">Bana bu karakteri anlat! <i class="fas fa-gavel"></i></button>
               </a>
+              <button class="twitter-share-button"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank" data-show-count="false">Tweet</a> <i class="fab fa-twitter"></i></button>
+
+              <button class="twitter-hashtag-button"><a href="https://twitter.com/intent/tweet?button_hashtag=piAgents&ref_src=twsrc%5Etfw" target="_blank" data-show-count="false">Tweet #piAgents</a></button>
+
             </div>
           </div>
 
@@ -55,7 +59,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   name: 'FinishedModal',
@@ -84,7 +88,8 @@ export default {
     },
   },
   async created() {
-    this.userPoint = await Math.floor(Math.random() * 10 + 1);
+    const agentNumber = this.agents.filter((s) => s.agentSurveyCategoryId == this.$route.params.id).length;
+    this.userPoint = await Math.floor(Math.random() * agentNumber + 1);
     this.$confetti.start();
 
     setTimeout(() => {
@@ -121,7 +126,7 @@ export default {
 
 .modal-container {
   width: 50%;
-  height: 80%;
+  height: 83%;
   overflow: auto;
   margin: 0 auto;
   padding: 20px 30px;
@@ -206,7 +211,6 @@ export default {
   color: transparent;
 }
 
-
 .footer-button button {
   font-family: CarterOne, sans-serif;
   position: relative;
@@ -215,7 +219,7 @@ export default {
   text-decoration: none !important;
   outline: none !important;
   font-size: 16px;
-  min-width: 220px;
+  min-width: 270px;
   min-height: 30px;
   line-height: 1.5em;
   letter-spacing: .1em;
@@ -270,6 +274,33 @@ export default {
 .footer-button button.goto-site:hover {
   top: 2px;
   box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0, 0, 0, .3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0, 0, 0, .3);
+}
+
+.footer-button button.twitter-share-button {
+  background: repeating-linear-gradient( 45deg, #3ebbf7, #3ebbf7 5px, #45b1f4 5px, #45b1f4 10px);
+  box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e, 0 15px 1px 6px rgba(0,0,0,.3);
+  border-bottom: 3px solid rgba(16, 91, 146, 0.5);
+  text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2, -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2, 0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px #004a87;
+}
+.footer-button button.twitter-share-button:hover {
+  top:2px;
+  box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e, 0 13px 1px 6px rgba(0,0,0,.3);
+}
+
+.footer-button button.twitter-hashtag-button {
+  background: repeating-linear-gradient( 45deg, #3ebbf7, #3ebbf7 5px, #45b1f4 5px, #45b1f4 10px);
+  box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e, 0 15px 1px 6px rgba(0,0,0,.3);
+  border-bottom: 3px solid rgba(16, 91, 146, 0.5);
+  text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2, -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2, 0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px #004a87;
+}
+.footer-button button.twitter-hashtag-button:hover {
+  top:2px;
+  box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e, 0 13px 1px 6px rgba(0,0,0,.3);
+}
+
+ a {
+  color: white;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1400px) {
