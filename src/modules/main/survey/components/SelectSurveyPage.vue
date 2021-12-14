@@ -13,7 +13,7 @@
       </div>
       <div class="page-container container">
         <div class="page-content row" v-if="userName">
-          <div class="page-survey__card col-12 col-sm-12 col-md-6 col-xl-4" v-for="(sur, index) in surveyCategory" :key="index" v-show="sur.visibility">
+          <div class="page-survey__card col-12 col-sm-12 col-md-6 col-xl-4 w-100" v-for="(sur, index) in surveyCategory" :key="index" v-show="sur.visibility">
             <survey-card
                 :id="sur.id"
                 :survey="sur"  />
@@ -69,9 +69,11 @@ export default {
   padding: 20px;
 }
 
+
 .page-content {
   display: flex;
   justify-content: center;
+  align-content: center;
 }
 
 .page-header__button {
