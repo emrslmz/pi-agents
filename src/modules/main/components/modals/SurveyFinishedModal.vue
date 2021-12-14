@@ -38,10 +38,12 @@
               <a href="https://oyuncudefteri.com" target="_blank">
                 <button class="goto-site">Bana bu karakteri anlat! <i class="fas fa-gavel"></i></button>
               </a>
-              <button class="twitter-share-button"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank" data-show-count="false">Tweet</a> <i class="fab fa-twitter"></i></button>
-
-              <button class="twitter-hashtag-button"><a href="https://twitter.com/intent/tweet?button_hashtag=piAgents&ref_src=twsrc%5Etfw" target="_blank" data-show-count="false">Tweet #piAgents</a></button>
-
+              <a :href="`http://twitter.com/share?url=https%3A%2F%2Fpi-agents.netlify.app&text=🧙${findSurveyCategory.name}'da%20${findAgent.name}%20${tweetLinkText}`" target="_blank">
+                <button class="twitter-share-button">
+                  Tweet'le
+                  <i class="fab fa-twitter"></i>
+              </button>
+              </a>
             </div>
           </div>
 
@@ -68,18 +70,24 @@ export default {
       front: true,
       userPoint: 0,
       loadingCounter: false,
-      yuzde: null,
+      tweetLinkText: `karakterine benziyormuşum! \r \n \r \n \r \n 🌠Sen de denemek istiyorsan işte: `
     }
   },
-  computed: {
+   computed: {
     ...mapState('Survey', ['surveyCategory']),
     ...mapState('Extra', ['agents', 'surveyResult']),
     filterAgents() {
       return this.agents.filter((s) => s.agentSurveyCategoryId == this.$route.params.id);
     },
-    filterSurveyResult() {
+     filterSurveyResult() {
       return this.surveyResult.filter((r) => r.resultSurveyCategoryId == this.$route.params.id);
-    }
+    },
+     findSurveyCategory() {
+       return this.surveyCategory.find((c) => c.id == this.$route.params.id);
+     },
+     findAgent() {
+       return this.agents.find((a) => a.agentId == this.userPoint && a.agentSurveyCategoryId == this.$route.params.id);
+     }
   },
   methods: {
     closeModal() {
