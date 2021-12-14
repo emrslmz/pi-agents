@@ -16,7 +16,7 @@ export default {
     };
   },
   created() {
-   this.number = Math.floor(Math.random() * 5) + 1;  // 1 veya 2 çıkabilir
+   this.number = Math.floor(Math.random() * 4) + 1;  // 1 veya 2 çıkabilir
   }
 };
 </script>
