@@ -3,6 +3,7 @@
    <div class="app">
      <the-header v-if="$route.name !== 'HomePage'" />
      <home-page v-if="$route.name === 'HomePage'"  />
+     <advertisement-banner />
      <router-view />
      <the-footer />
    </div>
@@ -15,6 +16,7 @@ export default {
     TheHeader: () => import('@/modules/main/home/layouts/TheHeader.vue'),
     HomePage: () => import('@/modules/main/home/components/HomePage.vue'),
     TheFooter: () => import('@/modules/main/home/layouts/TheFooter.vue'),
+    AdvertisementBanner: () => import('@/modules/main/home/layouts/AdvertisementBanner.vue'),
   },
 };
 </script>

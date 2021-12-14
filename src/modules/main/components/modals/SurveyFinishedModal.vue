@@ -6,7 +6,7 @@
 
           <div class="agent-container" v-if="loadingCounter">
 
-            <div>
+            <div class="pt-5">
               <h5><i class="fas fa-crown"></i> {{ agent.name }} karakterine benziyorsun!</h5>
             </div>
 
