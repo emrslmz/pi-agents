@@ -16,7 +16,7 @@ export default {
     };
   },
   async created() {
-    this.number = await Math.floor(Math.random() * 3) + 1;  // 1 veya 2 çıkabilir
+    this.number = await Math.floor(Math.random() * 3) + 1; //1 ve 3 dahil
   }
 };
 </script>
