@@ -10,7 +10,7 @@
           <h4>Soru Sayısı: <b>{{ getInfoSurvey.length }}</b></h4>
         </div>
         <div class="card-content__time">
-          <h4>Süre: <b>{{ getInfoSurvey.length > 3 ? getInfoSurvey.length - 3 : getInfoSurvey.length}} dk.</b></h4>
+          <h4>Süre: <b>5 dk.</b></h4>
         </div>
         <div :disabled="!survey.active">
           <router-link :class="survey.active ? '' : 'cursor_notAllowed'" :to="survey.active ? { name: 'SurveySide', params: { id }} : ''">

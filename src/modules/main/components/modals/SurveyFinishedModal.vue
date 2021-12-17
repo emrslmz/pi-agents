@@ -134,7 +134,7 @@ export default {
 
 .modal-container {
   width: 50%;
-  height: 83%;
+  height: 90%;
   overflow: auto;
   margin: 0 auto;
   padding: 20px 30px;
@@ -162,10 +162,9 @@ export default {
 }
 
 .agent-container__img {
-  width: 200px;
-  height: auto;
+  max-width: 400px;
+  max-height: 450px;
 }
-
 
 .agent-container__progress {
   justify-content: center;
@@ -198,7 +197,6 @@ export default {
   font-size: 16px;
 }
 
-
 .scanning-container {
   display: flex;
   flex-direction: column;
@@ -217,6 +215,10 @@ export default {
 .blur-text {
   text-shadow: 0 0 6px #575757;
   color: transparent;
+}
+
+.footer-button {
+  padding-top: 30px;
 }
 
 .footer-button button {
@@ -326,6 +328,17 @@ export default {
 @media screen and (max-width: 900px) {
   .modal-container {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .agent-container__img {
+    max-width: 300px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .agent-container__img {
+    max-width: 250px;
   }
 }
 </style>
