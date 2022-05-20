@@ -2,7 +2,7 @@
   <div>
     <div class="page">
       <div class="page-header">
-        <h3>Anketler</h3>
+        <h3>Anketler {{ categories }}</h3>
         <div v-if="userName">
           <h6>Ankete gitmek için bir kategori seç!</h6>
         </div>
@@ -36,6 +36,11 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'SurveyPage',
+  data() {
+    return {
+      categories: [],
+    };
+  },
   components: {
     SurveyCard: () => import('@/modules/main/survey/components/dashboard/SurveyCard.vue'),
   },
@@ -44,8 +49,12 @@ export default {
     ...mapState('Survey', ['surveyCategory']),
   },
   methods: {
-    ...mapActions('Home', ['setUserInfoModal'])
+    ...mapActions('Home', ['setUserInfoModal']),
   },
+  created() {
+    fetch("https://pi-agents-api.herokuapp.com/api/survey-categories")
+        .then(response => console.log(response)).catch(e => console.log(e));
+  }
 };
 </script>
 

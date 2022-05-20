@@ -1,5 +1,6 @@
 <template>
   <div class="advertisement-container">
+    {{ number }}
     <img @click="show = false" class="advertisement-image" src="/assets/img/images/aim_side_advertisement.gif" v-if="number === 1 && show" />
     <img @click="show = false" class="advertisement-image" src="/assets/img/images/oyuncudefteri_advertisement.gif" v-if="number === 2 && show" />
     <img @click="show = false" class="advertisement-image" src="/assets/img/images/sound_air_advertisement.gif" v-if="number === 3 && show" />
@@ -31,9 +32,7 @@ export default {
   justify-content: center;
   align-content: center;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
-  -o-user-select: none;
   user-select: none;
 }
 

@@ -51,6 +51,10 @@
 <script>
 export default {
   name: 'HomePages',
+  created() {
+    fetch('https://pi-agents-api.herokuapp.com/api/agent')
+        .then(data => console.log(data));
+  },
 };
 </script>
 

@@ -13,7 +13,7 @@ export default {
             name: 'Minecraft',
             minName: 'MC',
             image: 'minecraft_cadi.png',
-            active: true,
+            active: false,
             visibility: true,
         },
         {
